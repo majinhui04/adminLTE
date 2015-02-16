@@ -77,13 +77,13 @@ define(function(require,module,exports){
             $scope.list = function(page,refresh){
                 var page = page || 1, 
                     pagesize = $scope.pageModel.pagesize || 20,
-                    title = $scope.queryData.title;
+                    queryData = $scope.queryData || {};
 
                 mLoading.show();
                 $scope.pageModel.page = page;
                 $scope.pageModel.total = refresh?0:$scope.pageModel.total;
-
-                articleDao.list({ _page:page,_pagesize:pagesize,title:title },function(result){
+                queryData = $.extend({ _page:page,_pagesize:pagesize },queryData);
+                articleDao.list( queryData ,function(result){
                     var list = result.data || [], total = result.total || 0;
                     
                     angular.forEach(list, function(item, _){

@@ -18,11 +18,11 @@
             </div>
             <div class="form-group">
                 <label>开始日期</label>
-                <input type="text" class="form-control calendar" placeholder=""  onClick="WdatePicker()" readOnly>
+                <input type="text" class="form-control calendar" placeholder=""  wdatepicker readOnly ng-model="queryData.startDate">
             </div>
             <div class="form-group">
                 <label>结束日期</label>
-                <input type="text" class="form-control calendar" placeholder=""  onClick="WdatePicker()" readOnly>
+                <input type="text" class="form-control calendar" placeholder=""  wdatepicker readOnly ng-model="queryData.endDate">
             </div>
             <button type="button" class="btn btn-default" ng-click="search()">搜索</button>
     

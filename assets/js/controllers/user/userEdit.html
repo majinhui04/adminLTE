@@ -1,11 +1,5 @@
 <div class="wrapper">
-    <h1 class="headline1 clearfix">
-        <span class="headline1-txt">用户-{{_action}}</span>
-        <a class="btn btn-default" href="#/user">
-            <i class="fa fa-reply"></i>
-            <span>返回</span>
-        </a>
-    </h1>
+    
     <div class="form-wrapper">
         <form class="form-horizontal" role="form" name="submitForm" novalidate >
             <div class="form-group-wrapper">
@@ -61,6 +55,10 @@
                 <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="submitForm.$invalid || formData.password!=formData.repeatpassword">
                     保存
                 </button>
+                <a class="btn btn-default" href="#/user">
+                    <i class="fa fa-reply"></i>
+                    <span>返回</span>
+                </a>
              
             </div>
         </form>

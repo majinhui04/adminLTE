@@ -3542,6 +3542,7 @@ fieldset[disabled] .btn-vk.active {
 
 /*  todo */
 
+
 h1.headline1 {
   margin: 10px 0;
 }
@@ -3560,6 +3561,9 @@ h1.headline1 {
 }
 .table-wrapper table {
   margin: 0;
+}
+.required-sign ,.form-error-tips{
+  color: red;
 }
 .form-group-wrapper {
     margin-bottom: 10px;

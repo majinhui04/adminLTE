@@ -23,12 +23,24 @@ define(function(require, exports, module) {
         return {
             restrict: 'A',
             require: '?ngModel',
-            link: function (scope, elm, attr, ngModelCtrl) {
+            link: function ($scope, elm, attr, $ngModelCtrl) {
                 var datefmt = elm.attr('datefmt') || 'yyyy-MM-dd ';
-                console.log(111222222)
-                elm[0].onclick = function(){
-                    window.WdatePicker({dateFmt:datefmt});
+                
+                elm[0].onclick = function(e){
+                    window.WdatePicker({
+                        dateFmt:datefmt,
+                        onpicked:function(){
+                            var value = this.value;
+
+                            console.log('date',this.value)
+                            $scope[attr.ngModel] = value;
+                            $ngModelCtrl.$setViewValue(value);
+                            $scope.$apply();
+                        }
+                    });
+                    
                 };
+
                
             }
         }
@@ -87,7 +99,7 @@ define(function(require, exports, module) {
                     page = pageModel.page;
                 
                     total = total ? total : 0;
-                    console.log('total',total)
+                    //console.log('total',total)
                     if (total === 0) {
                         elm.html('');
                         return;
@@ -225,7 +237,7 @@ define(function(require, exports, module) {
                     title = $target.attr('data-title') || $target.text() || '',
                     $parent = $target.closest('.treeview');
 
-                console.log(hash,route,$target,$target.length,$parent.length,$parent)
+                //console.log(hash,route,$target,$target.length,$parent.length,$parent)
                 if(!$target.length) {
                     return;
                 }

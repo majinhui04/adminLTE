@@ -1,53 +1,49 @@
 /*
     全局 api 配置 
-    请求地址:version + api
     @params
-        demo:'统一本地资源前缀'
         host:'http://api.igrow.com'
         version:''  
-        mode: 'server' or 'demo' or '' 。 'server':全局使用服务器接口,'demo':全局使用本地模拟数据,'':根据匹配到的api具体配置
+        map: ajax路径匹配
  */
 (function(){
-    var host = 'http://' + location.host + '/public';
+    // 全局路径配置 "http://"
+    var dir = window.iDir = 'http://' + location.host + '/public';
     window.API = {
-        host:host,
-        version:'',
+        host:dir, // 数据请求的绝对路径
+        version:'',// 版本暂不使用
         demo:'/assets/api',
         //server: host + '/app/dao/dao.php',
         mode:'demo',
         map:{
             /* 用户 */
-            '/user/search':{
-                //mode:'demo',
-                description:''
-            },
             '/user/list':{
-                //mode:'demo',
+                demo:'/assets/api/user/list.txt', // 模拟的静态数据路径
+                // server:"/restful/api/user.php", //真实的服务器数据请求路径
                 description:''
             },
             '/user/get':{
-                //mode:'demo',
+                demo:'/assets/api/user/get.txt',
                 description:''
             },
             '/user/update':{
-                //mode:'demo',
+                demo:'/assets/api/user/update.txt',
                 description:''
             },
             '/user/create':{
-                //mode:'demo',
+                demo:'/assets/api/user/create.txt',
                 description:''
             },
             '/user/delete':{
-                //mode:'demo',
+                demo:'/assets/api/user/delete.txt',
                 description:''
             },
             '/user/current':{
-                //mode:'demo',
+                demo:'/assets/api/user/current.txt',
                 description:'获取当前用户'
             },
             '/user/validate':{
-                //mode:'demo',
-                server:'/app/dao/login.php',
+                demo:'/assets/api/user/validate.txt',
+                //server:'/app/dao/login.php',
                 description:''
             },
 
@@ -110,40 +106,34 @@
 /*
 *  全局参数配置 
 *  IGrow = { api:'ajax前缀',dir:'网站根目录',modules = [] }
+*  modules中包含所有的路由控制 每个路由对应html模板和js
 */
 
 (function(){
-    var dir = 'http://' + location.host + '/public';
+    var dir = window.iDir;
     var IGrow = window['IGrow'] = {
-        login:window['API']['host']+'/login.html',
-        logout:window['API']['host']+'/app/dao/logout.php',
-        admin:window['API']['host']+'/admin.html',
+        login:dir + '/login.html',
+        logout:dir + '/app/dao/logout.php',
+        admin:dir + '/admin.html',
         host:'http://' + location.host,
         dir:dir,
-        page:'_page',
-        pagesize:'_pagesize',
+        page:'_page', // 分页参数名称
+        pagesize:'_pagesize', // 分页大小参数名称
         log:function(){
             console.log.apply(console,arguments);
         },
-        seajs_dir:window['API']['host'], // 配置seajs路径
+        seajs_dir:dir, // 配置seajs路径
         modules:[
-            /* 公共 */
+            // 默认跳转 
             {
                 redirectTo:'/dashboard'
             },
+            // 404
             {
                 body:'404',
                 route:'/404',
                 title:'error',
-                template:'<div class="error-404">404 Error</div>',
-                dependency:[]
-            },
-            /*出错*/
-            {
-                body:'',
-                route:'/error',
-                title:'error',
-                template:'<div style=" text-align:center;padding:15px;">error</div>',
+                templateUrl:'/assets/tpl/404.html',
                 dependency:[]
             },
             // 首页
@@ -151,12 +141,12 @@
                 route:'/dashboard',
                 title:'首页',
                 controller: function($scope, $routeParams, $location) {
-                    console.log('dashboard')
+                    
                     
                 },
-                template: '<div class="wrapper"><div class="welcome"><div class="welcome-txt">欢迎使用文章管理系统</div></div>',
+                template: '<div class="wrapper"><div class="welcome"><div class="welcome-txt">欢迎使用adminLTE管理系统</div></div>',
                 dependency:[],
-                description:'作业详情-跳转'
+                description:''
             },
 
             /* 
