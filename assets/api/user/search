@@ -1,0 +1,31 @@
+{
+    "message":"success",
+    "data":[
+        {
+            "id":1,
+            "title":"first",
+            "author":"jack",
+            "content":"124",
+            "create_time":"2012-01-01 12:22:11",
+            "istop":0,
+            "isshow":1,
+            "type":{
+                "id":1,
+                "name":"新闻"
+            }
+        },
+        {
+            "id":2,
+            "title":"second",
+            "author":"jack",
+            "content":"aaaaaaaaaaaaa",
+            "create_time":"2012-01-01 12:22:11",
+            "istop":0,
+            "isshow":1,
+            "type":{
+                "id":2,
+                "name":"娱乐"
+            }
+        }
+    ]
+}

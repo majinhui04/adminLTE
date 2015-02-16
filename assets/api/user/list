@@ -1,0 +1,18 @@
+{
+    "message":"success",
+    "extra":{
+        "total":2
+    },
+    "data":[
+        {
+            "id":1,
+            "email":"majinhui04@126.com",
+            "name":"马金慧"
+        },
+        {
+            "id":2,
+            "email":"123@qq.com",
+            "name":"雄霸"
+        }
+    ]
+}

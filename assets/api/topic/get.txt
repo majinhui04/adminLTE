@@ -1,0 +1,22 @@
+{
+    "message":"success",
+    "extra":{
+        "total":8
+    },
+    "data":
+        {
+            "id":1,
+            "title":"无印良品（MUJI）有哪些非常值得购买的东西？",
+            "author":"匿名2",
+            "content":" <h1>Bootstrap</h1><h2>简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</h2>",
+            "create_time":"2012-01-01 12:22:11",
+            "publishtime":"2012-01-02 12:22:11",
+            "istop":0,
+            "isshow":1,
+            "type":{
+                "id":1,
+                "name":"知乎"
+            }
+        }
+        
+}

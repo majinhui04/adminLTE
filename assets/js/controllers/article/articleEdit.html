@@ -1,0 +1,93 @@
+<div class="wrapper">
+    
+    <div class="form-wrapper">
+        <form class="form-horizontal" role="form" name="submitForm" novalidate >
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    标题
+                </label>
+                <span class="form-group-content">
+                    <input type="text" class="form-group-input" required ng-model="formData.title">
+                    <!-- <span class="form-tips">最多输入20个字</span> -->
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    类别
+                </label>
+                <span class="form-group-content">
+                    <select class="form-group-input" ng-model="formData.typeid" ng-options="option.id as option.name for option in articleTypeList" required>
+                        
+                    </select>
+
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    作者
+                </label>
+                <span class="form-group-content">
+                    <input type="text" class="form-group-input" ng-model="formData.author">
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    发布时间
+                </label>
+                <span class="form-group-content">
+                    <input type="text" class="form-group-input calendar" readonly  ng-model="formData.publishtime" wdatepicker datefmt="yyyy-MM-dd HH:mm:ss">
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    内容
+                </label>
+                <span class="form-group-content" style="position:relative;" >
+                    
+                    <div id="editor"  style="width:600px;height:300px;" class="editor" editor ng-model="formData.content"></div>
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    是否置顶
+                </label>
+                <span class="form-group-content">
+                    <label>
+                        <input type="radio" class="form-group-checkbox" name="topRadio" ng-model="formData.istop" value="1">是
+                    </label>
+                    <label>
+                        <input type="radio" class="form-group-checkbox" name="topRadio" ng-model="formData.istop" value="0">否
+                    </label>
+                </span>
+            </div>
+            <div class="form-group-wrapper" style="display:none;">
+                <label class="form-group-label">
+                    是否显示
+                </label>
+                <span class="form-group-content">
+                    <label>
+                        <input type="radio" class="form-group-checkbox" name="showRadio" ng-model="formData.isshow" value="1">是
+                    </label>
+                    <label>
+                        <input type="radio" class="form-group-checkbox" name="showRadio" ng-model="formData.isshow" value="0">否
+                    </label>
+                </span>
+            </div>
+            <div class="form-group-action">
+               
+                <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="submitForm.$invalid">
+                    <i class="fa fa-save"></i>
+                    <span>保存</span>
+                    
+                </button>
+                 <a class="btn btn-default" href="#/article">
+                    <i class="fa fa-reply"></i>
+                    <span>返回</span>
+                </a>
+            </div>
+        </form>
+
+
+
+    </div>
+</div>

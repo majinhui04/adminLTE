@@ -1,0 +1,40 @@
+<div class="wrapper">
+   <h1 class="headline1 clearfix">
+        
+        <a class="btn btn-success" href="#/article_type/add">
+            <i class="fa fa-plus"></i>
+            <span>添加文章类别</span>
+        </a>
+        <button class="btn btn-danger btn-bulkdelete" ng-click="toBulkDeleteView()" ng-disabled="!checked">
+            <i class="fa fa-trash-o"></i>
+            <span>批量删除</span>
+        </button>
+        
+    </h1>
+    <table class="table table-striped table-bordered table-condensed table-hover">
+        <thead>
+            <tr>
+                <th class="center index"><input type="checkbox" class="input-checkbox input-checkbox-boss" ng-click="checkAll($event)" /></th>
+                <th class="">名称</th>
+                <th class="actions">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="data in dataList">
+                <td class="center index">
+                    <input type="checkbox" class="input-checkbox" ng-model="data._checked" ng-click="check($event,data)" />
+                </td>
+                <td class="center">
+                    {{data.name}}
+                </td>
+                <td class="center actions">
+                    <a href="#/article_type/update/{{data.id}}">编辑</a>
+                    <a href="javascript:void(0);" ng-click="toDeleteView(data)">删除</a>
+                </td>
+            </tr>
+        </tbody>
+    
+
+    </table>
+    
+</div>

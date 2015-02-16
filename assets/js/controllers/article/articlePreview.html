@@ -1,0 +1,17 @@
+<div class="wrapper article-preview-wrapper">
+    <h2 class="article-preview-title" ng-bind="data.title"></h2>
+    <div class="article-preview-info">
+        时间: <span ng-bind="data.publishtime"></span>作者: <span ng-bind="data.author"></span>
+    </div>
+    <div class="article-preview-content" ng-bind-html="data.content"></div>
+    <div class="article-preview-actions">
+        <a class="btn btn-primary" href="#/article/update/{{data.id}}">
+            <i class="fa fa-edit"></i>
+            <span>编辑</span>
+        </a>
+        <a class="btn btn-default" href="#/article">
+            <i class="fa fa-reply"></i>
+            <span>返回</span>
+        </a>
+    </div>
+</div>

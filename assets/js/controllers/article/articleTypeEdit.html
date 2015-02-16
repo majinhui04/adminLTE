@@ -1,0 +1,32 @@
+<div class="wrapper">
+    <h1 class="headline1 clearfix">
+        <span class="headline1-txt">文章类别-{{_action}}</span>
+        <a class="btn btn-default" href="#/article_type">
+            <i class="fa fa-reply"></i>
+            <span>返回</span>
+        </a>
+    </h1>
+    <div class="form-wrapper">
+        <form class="form-horizontal" role="form" name="submitForm" novalidate >
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    名称
+                </label>
+                <span class="form-group-content">
+                    <input type="text" class="form-group-input" ng-model="formData.name" required>
+                </span>
+
+            </div>
+            <div class="form-group-action">
+               
+                <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="submitForm.$invalid">
+                    保存
+                </button>
+             
+            </div>
+        </form>
+
+
+
+    </div>
+</div>

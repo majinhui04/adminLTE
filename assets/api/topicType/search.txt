@@ -1,0 +1,13 @@
+{
+    "message":"success",
+    "data":[
+        {
+            "id":1,
+            "name":"新闻"
+        },
+        {
+            "id":2,
+            "title":"娱乐"
+        }
+    ]
+}

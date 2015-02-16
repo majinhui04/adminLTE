@@ -1,0 +1,71 @@
+<div class="wrapper">
+    <h1 class="headline1 clearfix">
+        <span class="headline1-txt">用户-{{_action}}</span>
+        <a class="btn btn-default" href="#/user">
+            <i class="fa fa-reply"></i>
+            <span>返回</span>
+        </a>
+    </h1>
+    <div class="form-wrapper">
+        <form class="form-horizontal" role="form" name="submitForm" novalidate >
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    邮箱
+                    <span class="required-sign">*</span>
+                </label>
+                <span class="form-group-content">
+                    <input type="email" name="email" class="form-group-input" ng-model="formData.email" required>
+                    <span class="form-error-tips" ng-show="submitForm.email.$dirty && submitForm.email.$invalid">邮箱格式有误</span>
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    姓名
+                    <span class="required-sign">*</span>
+                </label>
+                <span class="form-group-content">
+                    <input type="text" class="form-group-input" ng-model="formData.name" required>
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    手机
+                    <span class="required-sign">*</span>
+                </label>
+                <span class="form-group-content">
+                    <input type="text" name="cellphone" class="form-group-input" ng-model="formData.cellphone" required ng-pattern="/(^1[3|5|8][0-9]{9}$)/">
+                    <span class="form-error-tips" ng-show="submitForm.cellphone.$dirty && submitForm.cellphone.$invalid">手机格式有误</span>
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    密码
+                    <span class="required-sign">*</span>
+                </label>
+                <span class="form-group-content">
+                    <input type="password" name="password" class="form-group-input" ng-model="formData.password" required>
+                </span>
+            </div>
+            <div class="form-group-wrapper">
+                <label class="form-group-label">
+                    确认密码
+                    <span class="required-sign">*</span>
+                </label>
+                <span class="form-group-content">
+                    <input type="password" name="password1" class="form-group-input" ng-model="formData.repeatpassword" required>
+                    <span class="form-error-tips" ng-show="submitForm.password1.$dirty && formData.password!=formData.repeatpassword">密码不一致</span>
+                </span>
+            </div>
+            <div class="form-group-action">
+               
+                <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="submitForm.$invalid || formData.password!=formData.repeatpassword">
+                    保存
+                </button>
+             
+            </div>
+        </form>
+
+
+
+    </div>
+</div>

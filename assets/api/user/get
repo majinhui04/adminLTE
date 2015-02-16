@@ -1,0 +1,73 @@
+{
+    "code": 0,
+    "message": "",
+    "data": {
+        "schoolid": 404,
+        "typeid": 4,
+        "uid": 969980,
+        "name":"马金慧",
+        "username": "8071991021",
+        "nickname": "洪冠",
+        "realname": "洪冠",
+        "email": "",
+        "mobile": "",
+        "lastmobile": "",
+        "sex": 1,
+        "status": 0,
+        "avatar": "http://avatartest.haoyuyuan.com/2014/03/14/6c7dca56c6712635c0fefb1fc5d6bdee.jpg",
+        "lastloginip": "127.0.0.1",
+        "lastlogin": 1405416985,
+        "createip": "60.191.51.210",
+        "lastip": "192.168.1.244",
+        "createtime": 1339385325,
+        "profile": {
+            "birthday": "1993-07-23",
+            "family": [
+                {
+                    "mobile": "13312312322",
+                    "name": "1122",
+                    "relatives": "321321312"
+                },
+                {
+                    "mobile": "",
+                    "name": "32423432",
+                    "relatives": "爸爸"
+                }
+            ],
+            "father": {
+                "mobile": "13456525308",
+                "name": "洪熙官",
+                "weixin": "mamam"
+            },
+            "mother": {
+                "mobile": "13456525308",
+                "name": "上官婉儿"
+            }
+        },
+        "school": {
+            "student": {
+                "classid": 4371,
+                "createtime": 0,
+                "creator": "",
+                "displayorder": 0,
+                "gradeid": 223,
+                "graduatedyear": 0,
+                "id": 133672,
+                "lastoperate": 1404458788,
+                "lastoperator": "8071198",
+                "mobile": "15167119587",
+                "name": "洪冠",
+                "number": "8071991021",
+                "password": "igrowcn",
+                "schoolid": 404,
+                "sex": 1,
+                "spell": "hg",
+                "startyear": 0,
+                "status": 0,
+                "staydown": 0,
+                "uid": 969980
+            }
+        }
+    },
+    "extra": null
+}
