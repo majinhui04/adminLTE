@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    
+    <title>
+        刮刮卡
+    </title>
+    <style type="text/css">
+        #iphone5 {
+            width: 640px;
+        }
+        .area,#target-area {
+            width: 640px;
+            
+            background-color: #f1f1f1;
+            margin-bottom: 30px;
+        }
+        #target-area canvas {
+            width: 320px;
+        }
+     
+    </style>
+</head>
+<!-- <body oncontextmenu="return false;" onselectstart="return false;"> -->
+<body >
+    
+    <p class="area">
+        <img src="./000.jpg" alt="" id="iphone5">
+    </p>
+    
+    <canvas id="c" width="640" height="1010">Your browser does not support the HTML5 canvas tag.</canvas>
+    
+    
+</body>
+
+<script>
+    
+
+
+</script>
+<script type="text/javascript">
+    
+        window.onload = function(){
+            draw28('c');
+        };
+        
+        //draw13('c');
+        //drawImage(image,x,y)
+        function draw28(id) {
+            var img = document.getElementById('iphone5');
+            var image = new Image();
+            var canvas = document.getElementById(id);
+            
+            
+            
+            var context = canvas.getContext("2d");
+            //context.drawImage(img,0,0)
+            image.onload = function(){
+                var self = this;
+
+                console.log(this.width,this.height)
+                
+                context.drawImage(image,0,0,640,1010);
+              
+                
+            };
+
+            image.src='000.jpg';
+            
+        }
+
+        //drawImage(image,x,y,w,h)
+        function draw12(id) {
+          
+            var image = new Image();
+
+            image.src = "iphone5.jpg";
+            var canvas = document.getElementById(id);
+
+            if (canvas == null)
+                return false;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#EEEEFF";
+           
+            context.fillRect(0, 0, 400, 300);
+            image.onload = function () {
+                context.drawImage(image, 50, 50, 300, 200);
+            }
+        }
+
+        //drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)
+        function draw13(id){
+            var image = new Image();
+            image.src = "iphone5.jpg";
+            var canvas = document.getElementById(id);
+           
+            if (canvas == null)
+                return false;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#EEEEFF";
+          
+            context.fillRect(0, 0, 400, 300);
+            image.onload = function () {
+                context.drawImage(image, 100, 100, 200, 150,50,50,200,150);//这里取的是实际尺寸
+            }
+        }
+
+        function preImage(url,callback){
+            var img = new Image(); //创建一个Image对象，实现图片的预下载
+            
+            img.src = url;
+       
+            if (img.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数
+                 callback.call(img);
+                return; // 直接返回，不用再处理onload事件
+            }
+
+             img.onload = function () { //图片下载完毕时异步调用callback函数。
+                 callback.call(img);//将回调函数的this替换为Image对象
+             };
+        }
+        
+
+
+
+   
+
+</script>
+
+
+</html>

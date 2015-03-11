@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>IGrow API</title>
+    <link rel="stylesheet" href="../css/igrow.css">
+    <link rel="stylesheet" href="../css/igrow.plugins.css">
+    <script src="../../vendor/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../igrow.js"></script>
+    <script>
+    window.console = window.console || {
+      log:function(){},
+      warn:function(){}
+    };
+    </script>
+    <style>
+    .register {
+      width: 600px;
+      padding: 20px;
+    }
+    .table-wrapper {
+      width: 600px;
+      padding: 20px;
+    }
+    </style>
+</head>
+<body>
+<div class="scrollTop">TOP</div>
+<div class="tags"> <a href="" class="tag">tag1</a> <a href="" class="tag">tag2</a></div>
+  <section class="module">
+    <div class="table-wrapper">
+      <table class="am-table">
+          <thead>
+              <tr>
+                  <th>网站名称</th>
+                  <th>网址</th>
+                  <th>创建时间</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Amaze UI</td>
+                  <td>http://amazeui.org</td>
+                  <td>2012-10-01</td>
+              </tr>
+              <tr>
+                  <td>Amaze UI</td>
+                  <td>http://amazeui.org</td>
+                  <td>2012-10-01</td>
+              </tr>
+              <tr class="am-active">
+                  <td>Amaze UI(Active)</td>
+                  <td>http://amazeui.org</td>
+                  <td>2012-10-01</td>
+              </tr>
+              <tr>
+                  <td>Amaze UI</td>
+                  <td>http://amazeui.org</td>
+                  <td>2012-10-01</td>
+              </tr>
+              <tr>
+                  <td>Amaze UI</td>
+                  <td>http://amazeui.org</td>
+                  <td>2012-10-01</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+      
+  </section>
+  <section class="module">
+    <div class="register">
+        <div class="registerWrapper">
+            <header class="text-center">
+                <h1 class="text-bold">注册</h1>
+            </header>
+            <div status-message></div>
+        </div>
+       
+        <form method="post" novalidate name="register" id="register"  class="">
+            <div class="inputWrapper " >
+                <label class="required">昵称</label>
+                <div class="inputLayoutWrapper">
+                    <input class="" name="nickname" type="text"  placeholder="昵称" >
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">邮箱</label>
+                <div class="inputLayoutWrapper">
+                    <!-- fieldInvalid -->
+                    <input class=""  id="email" name="email" type="email"  placeholder="邮箱地址" >
+                    <div class="field-problem ng-hide" >
+                        <!-- ngIf: !state.isValid -->
+                        <p >
+                            <span class="ng-binding">请输入正确的格式</span>
+                        </p>
+                        <!-- end ngIf: !state.isValid -->
+                        <!-- ngIf: state.isValid && forceError -->
+                    </div>
+                    <small>提示语句</small>
+              
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">密码</label>
+                <div class="inputLayoutWrapper">
+                    <input class="" name="nickname" type="password"  placeholder="" >
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">地址:</label>
+                <div class="inputLayoutWrapper">
+                    <select name="iFrom" id="iFrom">
+                        <option value="">请选择</option>
+                        <option value="A">杭州</option>
+                        <option value="B">宁波</option>
+                        <option value="C">温州</option>
+                        <option value="D">绍兴</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">日期:</label>
+                <div class="inputLayoutWrapper">
+                   <input class="" name="date" type="date"  placeholder="" >
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                
+                <div class="inputLayoutWrapper">
+                    <input type="checkbox" name="termsAndAgreements" id="termsAndAgreements" >
+                    <label for="termsAndAgreements">
+                        <span>已认真阅读以上说明</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">Sex:</label>
+                <div class="inputLayoutWrapper">
+                    <input type="radio" name="sex" id="man" >
+                    <label for="man">
+                        <span>man</span>
+                    </label>
+
+                    <input type="radio" name="sex" id="woman" >
+                    <label for="woman">
+                        <span>woman</span>
+                    </label>
+                </div>
+            </div>
+
+            <p class="form-actions">
+                <button id="RegisterForm" name="RegisterForm" class="button-primary" type="submit">Registreren</button>
+
+
+                <button  class="button-red" disabled="">button-red</button>
+                <button  class="button-default">button-default</button>
+                <button  class="button-primary">button-primary</button>
+                <button  class="button-orange">button-orange</button>
+                <button  class="button-warning">button-warning</button>
+                <button  class="button-green">button-green</button>
+                <button class="button-transparent">button-transparent</button>
+            </p>
+
+        </form>
+        
+    </div>
+  </section>
+  <section class="module">
+    <img src="./images/1.jpg" alt="" width="100" class="rounded">
+
+  </section>
+    <section class="module">
+      <p><a href="">link1</a></p>
+      <p>
+        <a href="" class="plus">plus link</a>
+      </p>
+      <p>
+        <a href="" class="incognito">incognito link</a>
+      </p>
+    </section>
+    <section class="module">
+      <h1>我只是一个标题h1</h1>
+      <h1 class="title"><a href="">我只是一个标题h1</a></h1>
+      <h2>我只是一个标题h2</h2>
+      <h3>我只是一个标题h3</h3>
+      <h4>我只是一个标题h4</h4>
+      <h5>我只是一个标题h5</h5>
+      <h6>我只是一个标题h6</h6>
+    </section>
+    <section class="module">
+      <p class="">我只是一个段落</p>
+      <p class="lead">(class="lead")我只是一个段落</p>
+      <p class="footnote">(class="footnote")我只是一个段落</p>
+    </section>
+    <section class="module">
+    
+      <blockquote>
+        <p>2014年1月24日 -  这里使用命令npm install即可,下载的东西比较多,大概需要1分钟左右。下载完成后根目录jquery中多了一个node_modules,如下 可以看到安装了一堆lib,uglify、gzip.js...</p>
+        <p>rem是CSS3新增的一个相对单位（root em，根em），这个单位引起了广泛关注。这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。</p>
+      </blockquote>
+
+      <code>
+        var a,b //
+
+      </code>
+    </section>
+    <section class="module">
+      <button>button</button>
+      <ul class="tabs">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+      <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+      </ol>
+    </section>
+    <h1 id="h1">IGrow API</h1>
+    <section class="module">
+        <h4>Moblie Loading</h4>
+        <p>
+            <button id="btn-mload-show">显示</button>
+            <button id="btn-mload-hide">隐藏</button>
+            <button id="btn-mload-success">成功</button>
+        </p>
+    </section>
+
+    <section class="module">
+        <h4>Moblie Dialog</h4>
+        <p>
+            <button id="btn-mdialog-alert">alert</button>
+            <button id="btn-mdialog-confirm">confirm</button>
+        </p>
+    </section>
+   
+    <div id="m-alert1" style="display:none;" class="m-dialog1">
+      
+       <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+         <div class="modal-title">
+          温馨提示
+         
+         </div>
+         <div class="modal-body">
+          你TM太刚111
+         </div>
+         <div class="modal-footer">
+          <a href="javascript:void(0)" class="btn-alert" data-dismiss="modal">确定</a>
+         </div>
+        </div>
+       </div>
+  </div>
+  
+
+  <!-- <div class="m-modal"></div>
+    <div class="m-dialog" style="left:100px;top:100px;">
+        <div class="m-content">
+            <div class="m-txt">内容啊</div>
+        </div>
+        <div class="m-footer">
+            <button class="m-btn m-btn-success">确认</button>
+            <button class="m-btn">取消</button>
+        </div>
+    </div> -->
+   <script>
+   $(function(){
+        var IGrow = window.IGrow, 
+            Mediator = IGrow.Mediator,
+            MLoading = IGrow.mobile.loading;
+
+
+        var obj = {
+          init:function(){
+            var self = this;
+            console.log('init');
+            setTimeout(function(){
+              self.trigger('init',1,2)
+            },3000);
+          }
+        };
+
+        Mediator.installTo(obj);
+
+        obj.on('init', function(a,b){
+          console.log('a,b',a,b)
+        } );
+
+        obj.init();
+
+
+        $('#btn-mload-show').bind('click',function(){
+            MLoading.show();
+        });
+        $('#btn-mload-hide').bind('click',function(){
+            MLoading.hide();
+        });
+        $('#btn-mload-success').bind('click',function(){
+            MLoading.success('success');
+        });
+
+
+        var MDialog = IGrow.mobile;
+        $('#btn-mdialog-alert').bind('click',function(){
+            MDialog.alert('你TM太刚');
+        });
+        $('#btn-mdialog-confirm').bind('click',function(){
+            MDialog.confirm('你忍心关了我?',function(){
+                alert('忍心');
+            },function(){
+                alert('不忍心');
+            });
+        });
+
+        $('#m-alert1').modal({backdrop:false})
+
+        
+
+
+
+
+
+   });
+   </script>
+    
+</body>
+</html>

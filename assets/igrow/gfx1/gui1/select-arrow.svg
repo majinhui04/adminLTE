@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="16px" viewBox="0 0 8 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>select-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path d="M4.53990803,14.6080911 C4.25251187,15.0783757 3.78245524,15.0716742 3.49915447,14.6080911 L0.559439275,9.79764806 C0.272043118,9.32736343 0.489886717,8.94612242 1.04732074,8.94612242 L6.99174176,8.94612242 C7.54858741,8.94612242 7.76292399,9.33406498 7.47962322,9.79764806 L4.53990803,14.6080911 Z M3.46009197,0.851525633 C3.74748813,0.381241012 4.21754476,0.387942563 4.50084553,0.851525633 L7.44056072,5.66196869 C7.72795688,6.13225331 7.51011328,6.51349432 6.95267926,6.51349432 L1.00825824,6.51349432 C0.451412588,6.51349432 0.237076011,6.12555176 0.520376775,5.66196869 L3.46009197,0.851525633 Z" id="select-arrow" fill="#CCCCCC" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>

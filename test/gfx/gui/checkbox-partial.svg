@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>checkbox-partial</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Form-API" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Form-elements" sketch:type="MSArtboardGroup" transform="translate(-523.000000, -313.000000)">
+            <g id="Checkboxes" sketch:type="MSLayerGroup" transform="translate(523.000000, 233.000000)">
+                <g id="checkbox-partial" transform="translate(0.000000, 80.000000)" sketch:type="MSShapeGroup">
+                    <rect id="Rectangle-8" fill="#4BB2FA" x="0" y="0" width="21.2050781" height="21.2050781" rx="3"></rect>
+                    <g id="icon-affirmative" transform="translate(4.318555, 9.000000)" fill="#FFFFFF">
+                        <rect id="Rectangle-11" x="0" y="0" width="12.3628903" height="3"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

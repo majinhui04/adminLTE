@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title>
+        刮刮卡
+    </title>
+    <style type="text/css">
+        #iphone5 {
+            width: 640px;
+        }
+        .area,#target-area {
+            width: 640px;
+            
+            background-color: #f1f1f1;
+            margin-bottom: 30px;
+        }
+        /*#target-area canvas {
+            width: 640px;
+            height: 1010px;
+        }*/
+        h2{
+            color: #696868;
+        }
+        .box {
+            /*position: relative;*/
+            margin-left: 30px;
+            border: 1px solid #000;
+        }
+        #canvas { 
+            background: url(winning-ticket.jpg); /*奖品图片*/ 
+            width:247px; 
+            height: 154px; 
+        } 
+          
+        #canvas canvas { cursor: url("hand_white.cur") 0 0, auto; /*PC端的手势图片*/ }
+    </style>
+</head>
+<!-- <body oncontextmenu="return false;" onselectstart="return false;"> -->
+<body >
+    <h2>刮一下</h2>
+    <div class="box">
+        <div id="canvas"></div>
+    </div>
+    <p class="area">
+        <img src="./000.jpg" alt="" id="iphone5">
+    </p>
+    <div id="target-area">
+        <canvas id="c" style="width:640px;height:1010px;"></canvas>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    (function(){
+        
+        draw28('c');
+        //draw13('c');
+        //drawImage(image,x,y)
+        function draw28(id) {
+            var img = document.getElementById('iphone5');
+            var image = new Image();
+            var canvas = document.getElementById(id);
+            
+            
+            
+            var context = canvas.getContext("2d");
+            //context.drawImage(img,0,0)
+            image.onload = function(){
+                var self = this;
+
+                console.log(this.width,this.height)
+                
+                context.drawImage(image,0,0,640,1010);
+              
+                
+            };
+
+            image.src='000.jpg';
+            
+        }
+
+        //drawImage(image,x,y,w,h)
+        function draw12(id) {
+          
+            var image = new Image();
+
+            image.src = "iphone5.jpg";
+            var canvas = document.getElementById(id);
+
+            if (canvas == null)
+                return false;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#EEEEFF";
+           
+            context.fillRect(0, 0, 400, 300);
+            image.onload = function () {
+                context.drawImage(image, 50, 50, 300, 200);
+            }
+        }
+
+        //drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)
+        function draw13(id){
+            var image = new Image();
+            image.src = "iphone5.jpg";
+            var canvas = document.getElementById(id);
+           
+            if (canvas == null)
+                return false;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#EEEEFF";
+          
+            context.fillRect(0, 0, 400, 300);
+            image.onload = function () {
+                context.drawImage(image, 100, 100, 200, 150,50,50,200,150);//这里取的是实际尺寸
+            }
+        }
+
+        function preImage(url,callback){
+            var img = new Image(); //创建一个Image对象，实现图片的预下载
+            
+            img.src = url;
+       
+            if (img.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数
+                 callback.call(img);
+                return; // 直接返回，不用再处理onload事件
+            }
+
+             img.onload = function () { //图片下载完毕时异步调用callback函数。
+                 callback.call(img);//将回调函数的this替换为Image对象
+             };
+        }
+        
+
+
+
+    })();
+
+</script>
+<script type="text/javascript">
+    (function() {
+
+        window.onload = function() {
+
+            /**判断浏览器是否支持canvas**/
+
+            try {
+
+                document.createElement('canvas').getContext('2d');
+
+            } catch(e) {
+
+                alert('您的浏览器不支持刮刮卡效果哦~!');
+
+            }
+
+        };
+
+        var u = navigator.userAgent, mobile = 'PC';
+
+        if (u.indexOf('iPhone') > -1) mobile = 'iphone';
+
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) mobile = 'Android';
+
+        function createCanvas(parent, width, height) {
+
+            var canvas = {};
+
+            canvas.node = document.createElement('canvas');
+
+            canvas.context = canvas.node.getContext('2d');
+
+            canvas.node.width = width || 100;
+
+            canvas.node.height = height || 100;
+
+            parent.appendChild(canvas.node);
+
+            return canvas;
+
+        }
+
+        function init(container, width, height, fillColor, type) {
+
+            var canvas = createCanvas(container, width, height);
+
+            var ctx = canvas.context;
+
+            // define a custom fillCircle method
+            ctx.fillCircle = function(x, y, radius, fillColor) {
+
+                this.fillStyle = fillColor;
+
+                this.beginPath();
+
+                this.moveTo(x, y);
+
+                this.arc(x, y, radius, 0, Math.PI * 2, false);
+
+                this.fill();
+
+            };
+
+            ctx.clearTo = function(fillColor) {
+
+                ctx.fillStyle = fillColor;
+
+                ctx.fillRect(0, 0, width, height);
+
+            };
+
+            ctx.clearTo(fillColor || "#ddd");
+
+            canvas.node.addEventListener(mobile == "PC" ? "mousedown": "touchstart",
+            function(e) {
+
+                canvas.isDrawing = true;
+
+            },
+            false);
+
+            canvas.node.addEventListener(mobile == "PC" ? "mouseup": "touchend",
+            function(e) {
+
+                canvas.isDrawing = false;
+
+                var data = ctx.getImageData(0,0,width,height).data;
+
+                for(var i=0,pixels=0;i<data.length;i+=4){
+                    /*if(data[i] && data[i+1] && data[i+2] && data[i+3]){
+                        pixels++;
+                    }*/
+                    if(data[i+3]){
+                        pixels++;
+                    }
+                }
+                // 在涂层的面积小于等于30%时,就弹出窗口
+                if(pixels<=width*height*0.3){
+                    alert('ok');
+                }
+
+            },
+            false);
+
+            canvas.node.addEventListener(mobile == "PC" ? "mousemove": "touchmove",
+            function(e) {
+
+                if (!canvas.isDrawing) {
+
+                    return;
+
+                }
+
+                if (type == 'Android') {
+
+                    var x = e.changedTouches[0].pageX - this.offsetLeft;
+
+                    var y = e.changedTouches[0].pageY - this.offsetTop;
+
+                } else {
+
+                    var x = e.pageX - this.offsetLeft;
+
+                    var y = e.pageY - this.offsetTop;
+                    //console.log(e.pageX,this.offsetLeft)
+                }
+
+                var radius = 20;
+
+                //var fillColor = '#ff0000';
+                var fillColor = '#ff0000';
+
+                // 解决部分手机白屏问题
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.globalCompositeOperation = 'destination-out';
+
+                ctx.fillCircle(x, y, radius, fillColor);
+
+            },
+            false);
+
+        }
+
+        var container = document.getElementById('canvas');
+        // container, 247, 154, '#696868', mobile
+        init(container, 247, 154, '#696868', mobile);
+
+    })();
+</script>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Registreren</title>
+        <link rel="stylesheet" href="./css/aos-split-blessed1.css" />
+        
+        <style>
+            .register {
+                width: 90%;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px 0;
+            }
+        </style>
+    </head>
+    
+    <body>
+    <div class="register">
+        <div class="registerWrapper">
+            <header class="text-center">
+                <h1 class="text-bold">Registreren</h1>
+            </header>
+            <div status-message></div>
+        </div>
+    
+        <form method="post" novalidate name="register" id="register"  class="ng-pristine ng-invalid ng-invalid-valid">
+            <div class="inputWrapper" >
+                <label  for="email" class="ng-binding required">E-mailadres</label>
+                <div class="inputLayoutWrapper">
+                    <input class="fieldInvalid ng-dirty ng-invalid ng-invalid-email"  id="email" name="email" type="email" tabindex=""  placeholder="email" >
+                    <div class="field-problem ng-hide" >
+                        <!-- ngIf: !state.isValid -->
+                        <p data-ng-if="!state.isValid" class="ng-scope">
+                            <span class="ng-binding">请输入正确的格式</span>
+                        </p>
+                        <!-- end ngIf: !state.isValid -->
+                        <!-- ngIf: state.isValid && forceError -->
+                    </div>
+                    <!-- ngIf: validation.pwdstrength != undefined && type == 'password' -->
+                    <span class="remainingChars ng-binding ng-hide" ></span>
+                    <small class="ng-binding ng-hide">东方刷分刷分刷分</small>
+                </div>
+            </div>
+
+            <div class="inputWrapper span-full tablet--span-full desktop--span-full" >
+                <label  for="email1" class="ng-binding required">E-mailadres</label>
+                <div class="inputLayoutWrapper">
+                    <input class="ng-dirty fieldValid"  id="email1" name="email1" type="text" placeholder="email1" >
+                    <div class="field-problem ng-hide" >
+                        <!-- ngIf: !state.isValid -->
+                        <p data-ng-if="!state.isValid" class="ng-scope">
+                            <span class="ng-binding">请输入正确的格式</span>
+                        </p>
+                        <!-- end ngIf: !state.isValid -->
+                        <!-- ngIf: state.isValid && forceError -->
+                    </div>
+                    <!-- ngIf: validation.pwdstrength != undefined && type == 'password' -->
+                    <span class="remainingChars ng-binding ng-hide" ></span>
+                    <small class="ng-binding ng-hide">东方刷分刷分刷分</small>
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">Name:</label>
+                <div class="inputLayoutWrapper">
+                    <input class="" name="iname" type="text" placeholder="name" >
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">From:</label>
+                <div class="inputLayoutWrapper">
+                    <select name="iFrom" id="iFrom">
+                        <option value="">请选择</option>
+                        <option value="A">杭州</option>
+                        <option value="B">宁波</option>
+                        <option value="C">温州</option>
+                        <option value="D">绍兴</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                
+                <div class="inputLayoutWrapper">
+                    <input type="checkbox" name="termsAndAgreements" id="termsAndAgreements" >
+                    <label for="termsAndAgreements">
+                        <span>已认真阅读以上说明</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="inputWrapper " >
+                <label class="required">Sex:</label>
+                <div class="inputLayoutWrapper">
+                    <input type="radio" name="sex" id="man" >
+                    <label for="man">
+                        <span>man</span>
+                    </label>
+
+                    <input type="radio" name="sex" id="woman" >
+                    <label for="woman">
+                        <span>woman</span>
+                    </label>
+                </div>
+            </div>
+
+            <p class="form-actions">
+                <button id="RegisterForm" name="RegisterForm" class="button-primary" type="submit">Registreren</button>
+
+
+                <button  class="button-red" disabled="">button-red</button>
+                <button  class="button-default">button-default</button>
+                <button  class="button-primary">button-primary</button>
+                <button  class="button-orange">button-orange</button>
+                <button  class="button-warning">button-warning</button>
+                <button  class="button-green">button-green</button>
+                <button class="button-transparent">button-transparent</button>
+            </p>
+
+        </form>
+        
+    </div>
+             
+    </body>
+</html>

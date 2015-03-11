@@ -136,6 +136,7 @@
                 templateUrl:'/assets/tpl/404.html',
                 dependency:[]
             },
+            
             // 首页
             {
                 route:'/dashboard',

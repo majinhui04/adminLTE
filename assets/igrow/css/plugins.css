@@ -1,0 +1,783 @@
+
+.clearfix:after{
+    content: "xxoo";
+    height: 0;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}
+
+
+/* fix bootstrap.css */
+.modal[role="dialog"] {
+    overflow: auto;
+}
+.modal-open {
+    overflow: auto !important;
+}
+body.modal-open {
+    margin-right: 0 !important;
+}
+
+.ng-cloak {
+    display: none !important;
+}
+/* 
+    utils._dialog()
+    <div class="m-modal"></div>
+    <div class="m-dialog" style="left:100px;top:100px;">
+        <div class="m-content">
+            <div class="m-txt">内容啊</div>
+        </div>
+        <div class="m-footer">
+            <button class="m-btn m-btn-success">确认</button>
+            <button class="m-btn">取消</button>
+        </div>
+    </div>
+
+*/
+.m-dialog {
+    position: fixed;
+    width: 280px;
+    z-index: 9991;
+    left:-9999px;
+    top:-9999px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.m-content {
+    min-height: 30px;
+}
+.m-alert-dialog .m-content .m-txt {
+    
+}
+.m-dialog .m-txt {
+    font-size: 16px;
+    text-align: center;
+    padding: 25px 7px;
+}
+.m-footer , .modal .modal-footer {
+    border-top: 1px solid #ddd;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 12px 0;
+    border-radius: 0 0 5px 5px;
+}
+.m-dialog .m-footer .m-one-btn {
+    padding: 7px 60px;
+}
+.m-footer .m-btn {
+    margin:0 5px; 
+}
+.m-btn{
+    color: #666;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    white-space: nowrap;
+    padding: 7px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+}
+.m-btn:hover, .m-btn:active {
+    background-color: #e6e6e6;
+    background-image:none;
+    color: #333;
+    text-decoration: none;
+}
+.m-btn-primary {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    background-color: #006dcc;
+    background-image: -moz-linear-gradient(top,#08c,#04c);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#04c));
+    background-image: -webkit-linear-gradient(top,#08c,#04c);
+    background-image: -o-linear-gradient(top,#08c,#04c);
+    background-image: linear-gradient(to bottom,#08c,#04c);
+    background-repeat: repeat-x;
+    border-color: #04c #04c #002a80;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1);
+}
+.m-btn-primary:hover, .m-btn-primary:active {
+    color: #ffffff;
+    background-color: #0044cc;
+}
+.m-btn-danger {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #da4f49;
+    background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+    background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+    background-repeat: repeat-x;
+    border-color: #bd362f #bd362f #802420;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.m-btn-danger:hover, .m-btn-danger:active {
+    color: #ffffff;
+    background-color: #bd362f;
+}
+.m-btn-info {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #49afcd;
+    background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+    background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+    background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+    background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+    background-repeat: repeat-x;
+    border-color: #2f96b4 #2f96b4 #1f6377;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.m-btn-info:hover, .m-btn-info:active {
+    color: #ffffff;
+    background-color: #2f96b4;
+}
+.m-btn-success {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #5bb75b;
+    background-image: -moz-linear-gradient(top, #62c462, #51a351);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+    background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+    background-image: -o-linear-gradient(top, #62c462, #51a351);
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
+    background-repeat: repeat-x;
+    border-color: #51a351 #51a351 #387038;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.m-btn-success:hover, .m-btn-success:active {
+    color: #ffffff;
+    background-color: #51a351;
+}
+
+
+/* loading提示 */
+#mLoading {
+    position: absolute;
+    left: -9999;
+    top: -9999;
+    z-index: 9990;
+}
+#mLoading,
+#mLoading .lbk,
+#mLoading .lcont {
+    width: 146px;
+}
+#mLoading .lbk,
+#mLoading .lcont {
+    position: relative;
+}
+#mLoading .lbk {
+    height: 146px;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    z-index: 0;
+}
+#mLoading[role="success"] .lcont {
+    background: url('../img/mdialog/success.png') no-repeat 50% 50%;
+    background-size: 80px 80px;
+    height: 110px;
+    padding-top: 100px;
+    line-height: 1.5;
+}
+#mLoading .lcont {
+    text-align: center;
+    color: #f5f5f5;
+    font-size: 14px;
+    line-height: 35px;
+    z-index: 1;
+    margin-top: -146px;
+    padding-top: 90px;
+    height: 56px;
+    background: url('../img/mdialog/loading.gif') no-repeat 50% 50%;
+    background-size: 35px 35px;
+}
+
+/* modal */
+.m-modal {
+    position: fixed;
+    width: 100%;
+    height: 99999px;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 1000;
+    left:0;
+    top:0;
+}
+/* options */
+.m-options-box {
+    width: 100%;
+    position: fixed;
+    bottom: -200px;
+    left: 0;
+    font-size: 16px;
+    z-index: 900;
+    transition-property:all; 
+    transition-duration:0.2s;
+}
+.m-options-list {
+    margin: 0 auto;
+    width: 95%;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}
+.m-options-item {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: -1px;
+    border-bottom: 1px solid #d2d2d6;
+    color:#007aff;
+}
+.m-options-item:first-child {
+    border-radius:5px 5px 0 0;
+}
+.m-options-item:last-child {
+    border-radius: 0 0 5px 5px;
+}
+.m-options-actions {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+.options-cancel-btn {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color:#007aff;
+    font-weight: 700;
+}
+.m-options-box.m-options-enter {
+    bottom:10px;
+}
+.m-options-box.m-options-leave {
+    bottom:-200px;
+}
+
+/* qq表情 */
+.expreSelect {
+    cursor: pointer;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    color: #DDD;
+    font-size: 30px;
+}
+.expreSelect.expreSelectOn { 
+    color: #6990D2;
+}
+.expreList {
+    display: none;
+    overflow: hidden;
+}
+.expreBox {
+    width: 312px;
+    margin: 15px auto;
+    overflow: hidden;
+}
+.expreConNew {
+    width: 1900px;
+    overflow: hidden;
+}
+.expreCon li {
+    display: inline-block;
+    float: left;
+    width: 312px;
+    height: 117px;
+    background: url(../img/news/expressImgA1.png) no-repeat;
+    background-size: 312px auto;
+    overflow: hidden;
+}
+.expreConNew .bg1 {
+    background-image: url(../img/news/expressImgA1.png);
+}
+.expreConNew .bg2 {
+    background-image: url(../img/news/expressImgA2.png);
+}
+.expreConNew .bg3 {
+    background-image: url(../img/news/expressImgA3.png);
+}
+.expreConNew .bg4 {
+    background-image: url(../img/news/expressImgA4.png);
+}
+.expreConNew .bg5 {
+    background-image: url(../img/news/expressImgA5.png);
+}
+
+.expreConNew a {
+    width: 44px;
+    height: 39px;
+    display: block;
+    float: left;
+}
+.pNumCon {
+    width: 100%;
+    line-height: 25px;
+    clear: both;
+    text-align: center;
+}
+.pNum {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    margin-right: 3px;
+    background-color: #dedede;
+    -moz-border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    border-radius: 0.4rem;
+}
+.pNumOn {
+    background-color: #769cdc;
+}
+
+/* 照片等高排列 */
+.photoLayoutList{letter-spacing: -3px;font-size: 0px;margin: 0 auto;}
+.photoLayoutList .photoLayoutRow{margin: 0 auto;}
+.photoLayoutList .photoLayoutItem{display: inline-block;*display: inline;zoom:1;vertical-align: top;overflow: hidden;}
+.photoLayoutList .photoLayoutItem a{display: inline-block;*display: inline;zoom:1;text-decoration: none;}
+.photoLayoutList .photoLayoutItem a img{display: inline-block;*display: inline;zoom:1;}
+
+/*
+<div class="m-media-item m-media-player" data-role="parent" data-source="" data-type="video">
+    <div class="m-media-poster" data-role="poster">
+        <img src="../img/public/no-cover-135.jpg" alt="">
+        <span class="m-media-icon"></span>
+    </div>
+    <div class="m-media-show" data-role="show">
+        <div class="m-media-remove" data-role="remove">收起</div>
+        <div class="m-media-play" data-role="play"></div>
+    </div>
+</div>
+
+ */
+/* 多媒体 */
+.m-media-list {
+    padding: 3px 0;
+}
+.m-media-item[data-type="video"] .m-media-icon{
+    background: url(../img/public/video.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.m-media-item[data-type="audio"] .m-media-icon{
+    background: url(../img/public/audio.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.m-media-poster {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.m-media-poster img {
+    width: 100%;
+    height: 100%;
+}
+.m-media-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -25px 0 0 -25px;
+    z-index: 2;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+}
+.m-media-show {
+    display: none;
+}
+.m-media-remove {
+    color: #BBB;
+    line-height: 2;
+}
+/* 照片 */
+.m-photo-list {
+    padding: 3px 0;
+    letter-spacing: -3px;
+    font-size: 0;
+}
+.m-photo-item {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    vertical-align: top;
+    margin: 0 3px 3px 0;
+    background-color: #F1F1F1;
+}
+.m-photo-item img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 弹出大图 
+
+<div id="imageView" class="slide-view" style="">
+    <ul class="pv-inner" style="line-height:100px">
+        <li class="pv-img" style="width:100px;height:100px;"></li>
+        <li class="pv-img" style="width:100px;height:100px;"></li>
+        <li class="pv-img" style="width:100px;height:100px;"></li>
+    </ul>
+    <span class="ui-loading white" id="J_loading">
+        <div class="loadInco">
+            <span class="blockG" id="rotateG_01"></span>
+            <span class="blockG" id="rotateG_02"></span>
+            <span class="blockG" id="rotateG_03"></span>
+            <span class="blockG" id="rotateG_04"></span>
+            <span class="blockG" id="rotateG_05"></span>
+            <span class="blockG" id="rotateG_06"></span>
+            <span class="blockG" id="rotateG_07"></span>
+            <span class="blockG" id="rotateG_08"></span>
+        </div>
+    </span>
+    <p class="counts">
+        <span class="value" id="J_index">1/3</span>
+    </p>
+</div>
+
+*/
+.slide-view {
+    background: rgb(0, 0, 0);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index:9999;
+}
+.pv-inner {
+    margin:0;
+    padding:0;
+    list-style: none;
+    position: relative;
+    z-index: -1;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 350ms linear;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 350ms linear;
+    -moz-backface-visibility: hidden;
+    transition: all 350ms linear;
+    backface-visibility: hidden;
+}
+.pv-inner li {
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+.pv-inner img {
+    max-width: 97%;
+    vertical-align: middle;
+    -webkit-transform: scale(1) translate(0px, 0px);
+    -moz-transform: scale(1) translate(0px, 0px);
+    transform: scale(1) translate(0px, 0px);
+    max-height: 100%;
+    visibility: visible;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    transition: 200ms;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.slide-view .counts {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.slide-view .counts .value {
+    border-radius: 9px;
+    line-height: 18px;
+    padding: 0 6px;
+    font-size: 11px;
+    display: inline-block;
+    background-color: rgba(102, 102, 102, 0.6);
+    color: rgb(241, 241, 241);
+}
+.slide-view .ui-loading {
+    position: absolute;
+    margin: -10px 0 0 -10px;
+    left: 50%;
+    top: 50%;
+}
+.ui-loading {
+    display:inline-block;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    vertical-align: middle;
+    margin: -4px 2px 0 -42px;
+}
+.ui-loading.white i {
+    background: rgb(255, 255, 255);
+}
+.ui-loading i {
+    -webkit-animation: loading-spin 1s infinite linear;
+    -moz-animation: loading-spin 1s infinite linear;
+    animation: loading-spin 1s infinite linear;
+}
+.ui-loading i {
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    display: block;
+    width: 5px;
+    height: 12px;
+    background: rgb(204, 204, 204);
+}
+.ui-loading i.t2 {
+    -webkit-animation-name: loading-spin-one;
+    -moz-animation-name: loading-spin-one;
+    animation-name: loading-spin-one;
+}
+.ui-loading i.t3 {
+    -webkit-animation-name: loading-spin-two;
+    -moz-animation-name: loading-spin-two;
+    animation-name: loading-spin-two;
+}
+.ui-loading i.t3 {
+    left:23px;
+}
+.ui-loading i.t2 {
+    left:15px;
+}
+.t1 {
+    font-size:18px;
+    line-height:24px;
+}
+.t2 {
+    font-size:16px;
+    line-height:21px;
+}
+.t3 {
+    font-size:14px;
+    line-height:18px;
+}
+/* 图片预览加载中...*/
+.loadInco {
+    position:relative;
+    width:17px;
+    height:21px;
+    margin-right:5px;
+    display:inline-block;
+    vertical-align:-20%;
+}
+.blockG {
+    display:block;
+    position:absolute;
+    background-color:#ccc;
+    width:2px;
+    height:6px;
+    -moz-border-radius:3px 3px 0 0;
+    -moz-transform:scale(0.4);
+    -moz-animation-name:fadeG;
+    -moz-animation-duration:0.48s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-direction:linear;
+    -webkit-border-radius:3px 3px 0 0;
+    -webkit-transform:scale(0.4);
+    -webkit-animation-name:fadeG;
+    -webkit-animation-duration:0.48s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:linear;
+    border-radius:3px 3px 0 0;
+    transform:scale(0.4);
+    animation-name:fadeG;
+    animation-duration:0.48s;
+    animation-iteration-count:infinite;
+    animation-direction:linear;
+}
+#rotateG_01 {
+    left:0;
+    top:8px;
+    -moz-animation-delay:0.18s;
+    -moz-transform:rotate(-90deg);
+    -webkit-animation-delay:0.18s;
+    -webkit-transform:rotate(-90deg);
+    animation-delay:0.18s;
+    transform:rotate(-90deg);
+}
+#rotateG_02 {
+    left:2px;
+    top:3px;
+    -moz-animation-delay:0.24s;
+    -moz-transform:rotate(-45deg);
+    -webkit-animation-delay:0.24s;
+    -webkit-transform:rotate(-45deg);
+    animation-delay:0.24s;
+    transform:rotate(-45deg);
+}
+#rotateG_03 {
+    left:8px;
+    top:1px;
+    -moz-animation-delay:0.3s;
+    -moz-transform:rotate(0deg);
+    -webkit-animation-delay:0.3s;
+    -webkit-transform:rotate(0deg);
+    animation-delay:0.3s;
+    transform:rotate(0deg);
+}
+#rotateG_04 {
+    right:2px;
+    top:3px;
+    -moz-animation-delay:0.36s;
+    -moz-transform:rotate(45deg);
+    -webkit-animation-delay:0.36s;
+    -webkit-transform:rotate(45deg);
+    animation-delay:0.36s;
+    transform:rotate(45deg);
+}
+#rotateG_05 {
+    right:0;
+    top:8px;
+    -moz-animation-delay:0.42s;
+    -moz-transform:rotate(90deg);
+    -webkit-animation-delay:0.42s;
+    -webkit-transform:rotate(90deg);
+    animation-delay:0.42s;
+    transform:rotate(90deg);
+}
+#rotateG_06 {
+    right:2px;
+    bottom:2px;
+    -moz-animation-delay:0.48s;
+    -moz-transform:rotate(135deg);
+    -webkit-animation-delay:0.48s;
+    -webkit-transform:rotate(135deg);
+    animation-delay:0.48s;
+    transform:rotate(135deg);
+}
+#rotateG_07 {
+    bottom:0;
+    left:8px;
+    -moz-animation-delay:0.54s;
+    -moz-transform:rotate(180deg);
+    -webkit-animation-delay:0.54s;
+    -webkit-transform:rotate(180deg);
+    animation-delay:0.54s;
+    transform:rotate(180deg);
+}
+#rotateG_08 {
+    left:2px;
+    bottom:2px;
+    -moz-animation-delay:0.6s;
+    -moz-transform:rotate(-135deg);
+    -webkit-animation-delay:0.6s;
+    -webkit-transform:rotate(-135deg);
+    animation-delay:0.6s;
+    transform:rotate(-135deg);
+}
+@-moz-keyframes fadeG {
+    0% {
+        background-color:#8b8c8d
+    }
+    100% {
+        background-color:#ccc
+    }
+}
+@-webkit-keyframes fadeG {
+    0% {
+        background-color:#8b8c8d
+    }
+    100% {
+        background-color:#ccc
+    }
+}
+@-o-keyframes fadeG {
+    0% {
+        background-color:#8b8c8d
+    }
+    100% {
+        background-color:#ccc
+    }
+}
+@keyframes fadeG {
+    0% {
+        background-color:#8b8c8d
+    }
+    100% {
+        background-color:#ccc
+    }
+}
+
+/* 
+跳转到顶部 
+<div class="m-gotop-box">
+    <i class="fa fa-chevron-up"></i>
+</div>
+
+*/
+.m-gotop-box {
+    display: none;
+    cursor: pointer;
+    right: 10px;
+    bottom: 10px;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    color: #FFF;
+    text-align: center;
+    line-height: 50px;
+    z-index: 100;
+}
+.m-gotop-box .fa {
+    margin: 0;
+}
+
+/* 修复datetimepicker在modal下层级不够 */
+.datetimepicker {
+    z-index: 9999 !important;
+}
+
+.loading-more-box {
+    height: 60px;
+    color: #BBB;
+    text-align: center;
+}
+.loading-more-icon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 7px;
+    background: url(../img/public/loading-20.gif) no-repeat 0 0;
+} 
+.loading-more-txt{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+*[data-role="link"] {
+    cursor: pointer;
+}
+*[data-role="link"]:hover {
+    background-color: #E4E2E3;
+}
+*[data-role="link"]:active{
+    background-color: #E4E2E3 !important;
+}
