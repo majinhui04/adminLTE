@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-    require('/public/assets/vendor/igrow/angular/angular-core');
+    require('/public/assets/igrow/angular/angular-core');
     /*require('angular-route');
     require('angular-lazyload');
     require('angular-core');

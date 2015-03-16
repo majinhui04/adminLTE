@@ -1,3 +1,12 @@
+/*
+    F:
+    C:
+    A:
+    D:
+    B:
+    E:
+*/
+
 function Lottery(F, C, A, D, B, E) {
     this.conNode = F;
     this.background = null;

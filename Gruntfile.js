@@ -7,7 +7,7 @@ module.exports = function(grunt) {
             assets: './assets', //输出的最终文件assets里面
             scss: './css/sass', //推荐使用Sass
             css: './css', //若简单项目，可直接使用原生CSS，同样可以grunt watch:base进行监控
-            js: './js', //js文件相关目录
+            js: './assets/js', //js文件相关目录
             img: './img' //图片相关
         },
         buildType: 'Build',
@@ -33,7 +33,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    '<%= paths.assets %>/js/min.v.js': '<%= paths.js %>/base.js'
+                    //'<%= paths.assets %>/js/min.v.js': '<%= paths.js %>/app.js'
+                    'projects/alimama/assets/js/app.min.js': 'projects/alimama/assets/js/app.js'
                 }
             }
         },
@@ -224,8 +225,24 @@ module.exports = function(grunt) {
                     authKey: 'key2'
                 },
                 cache: 'sftpCache.json',
-                src: 'build',
-                dest: '/var/www/html/majinhui/demo1',
+                src: 'projects/alimama',
+                dest: '/var/www/html/majinhui/alimama',
+                exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp'],
+                serverSep: '/',
+                concurrency: 4,
+                progress: true
+            }
+        },
+        'alimama1': {
+            build: {
+                auth: {
+                    host: '121.199.36.124',
+                    port: 22,
+                    authKey: 'key2'
+                },
+                cache: 'sftpCache1.json',
+                src: 'projects/alimama',
+                dest: '/var/www/html/majinhui/alimama',
                 exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp'],
                 serverSep: '/',
                 concurrency: 4,
@@ -261,6 +278,9 @@ module.exports = function(grunt) {
     grunt.registerTask('publish', ['ftp-deploy']);
     //执行 grunt ssh 可以利用 ssh 上传到服务器
     grunt.registerTask('ssh', ['sftp-deploy']);
+    
+
+    grunt.registerTask('app', [ 'uglify']);
     //执行 grunt gcc 可进行谷歌压缩
     grunt.registerTask('gcc', ['closure-compiler']);
 
