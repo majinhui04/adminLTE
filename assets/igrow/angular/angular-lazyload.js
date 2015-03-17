@@ -70,7 +70,7 @@
                 if (route) {
                     // 设置标题
                     if (route.title) {
-                        document.title = route.title;
+                        //document.title = route.title;
                     }
                     // 设置body css
                     var role = route.body || ''; 

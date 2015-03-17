@@ -145,7 +145,7 @@
                     
                     
                 },
-                template: '<div class="wrapper"><div class="welcome"><div class="welcome-txt">欢迎使用adminLTE管理系统</div></div>',
+                templateUrl: '/assets/js/controllers/dashboard/dashboard.html',
                 dependency:[],
                 description:''
             },
