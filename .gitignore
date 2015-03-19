@@ -4,3 +4,7 @@ i18n/
 node_modules/
 h5/
 projects/
+build/
+build1/
+resource/
+test/

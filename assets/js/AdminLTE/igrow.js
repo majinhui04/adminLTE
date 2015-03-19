@@ -126,7 +126,7 @@
         modules:[
             // 默认跳转 
             {
-                redirectTo:'/dashboard'
+                redirectTo:'/404'
             },
             // 404
             {

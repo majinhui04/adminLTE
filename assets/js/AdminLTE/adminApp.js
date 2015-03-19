@@ -148,7 +148,21 @@ define(function(require, exports, module) {
     });
     app.controller('adminController',['$scope','$q','$route','$timeout','routeConfig','resource', 'mLoading','mNotice','$routeParams','$route',function($scope,$q,$route,$timeout,routeConfig,resource,mLoading,mNotice,$routeParams,$route){
         var userDao = resource('/user',{ extra:'user' },{current:{}});
-       
+
+        var Guests = window.Guests || [];
+        var username = localStorage.getItem('username') || '';
+
+
+        for (var i = Guests.length - 1; i >= 0; i--) {
+            if(Guests[i].username == username) {
+                $scope.user = Guests[i];
+                break;
+            }
+        };
+
+        $scope.user = $scope.user || { name:'喵星人',avatar:'/public/assets/img/cat.jpg' };
+
+
         $scope.logout = IGrow.logout;
         $scope.reload = function($event){
             var target = $event.currentTarget,

@@ -1,0 +1,420 @@
+
+/*
+ * Swiper 2.7.0
+ * Mobile touch slider and framework with hardware accelerated transitions
+ *
+ * http://www.idangero.us/sliders/swiper/
+ *
+ * Copyright 2010-2014, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under GPL & MIT
+ *
+ * Released on: August 30, 2014
+*/
+/* ===============================================================
+Basic Swiper Styles 
+================================================================*/
+.swiper-container {
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    backface-visibility:hidden;
+    /* Fix of Webkit flickering */
+    z-index:1;
+}
+.swiper-wrapper {
+    position:relative;
+    width:100%;
+    height: 100%; 
+    overflow: hidden;
+    -webkit-transition-property:-webkit-transform, left, top;
+    -webkit-transition-duration:0s;
+    -webkit-transform:translate3d(0px,0,0);
+    -webkit-transition-timing-function:ease;
+    
+    -moz-transition-property:-moz-transform, left, top;
+    -moz-transition-duration:0s;
+    -moz-transform:translate3d(0px,0,0);
+    -moz-transition-timing-function:ease;
+    
+    -o-transition-property:-o-transform, left, top;
+    -o-transition-duration:0s;
+    -o-transform:translate3d(0px,0,0);
+    -o-transition-timing-function:ease;
+    -o-transform:translate(0px,0px);
+    
+    -ms-transition-property:-ms-transform, left, top;
+    -ms-transition-duration:0s;
+    -ms-transform:translate3d(0px,0,0);
+    -ms-transition-timing-function:ease;
+    
+    transition-property:transform, left, top;
+    transition-duration:0s;
+    transform:translate3d(0px,0,0);
+    transition-timing-function:ease;
+
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -ms-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+.swiper-slide {
+    float: left;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+    -ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+    -ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+    /* Specify Swiper's Size: */
+
+    /*width:200px;
+    height: 100px;*/
+}
+.swiper-slide {
+    /* Specify Slides's Size: */
+    
+    /*width: 100%;
+    height: 100%;*/
+}
+.swiper-slide-active {
+    /* Specific active slide styling: */
+    
+}
+.swiper-slide-visible {
+    /* Specific visible slide styling: */   
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+    /* Stylize pagination button: */    
+
+}
+.swiper-active-switch {
+    /* Specific active button style: */ 
+    
+}
+.swiper-visible-switch {
+    /* Specific visible button style: */    
+    
+}
+
+/* reset */
+*{margin: 0; padding: 0; outline: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-box-sizing: border-box;}
+html{height: 100%; font-size: 100%; -webkit-text-size-adjust: 100%;}
+body{margin:0; padding:0; width: 100%; height: 100%; font-family: Helvetica, Arial, sans-serif; font-size: 14px;position: relative; word-break:break-all;}
+a{text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0.35);}
+table{border-collapse: collapse; border-spacing: 0;}
+th, td, caption{vertical-align: middle;}
+textarea{resize: none;}
+input, button, select, textarea{outline: none; border-radius: 0; font-family: inherit; font-size: inherit;}
+ul,ol,li{list-style: none;}
+
+body {
+    font-family: '微软雅黑';
+}
+.container{
+    min-width: 320px;
+    font-size: 12px;
+    width:100%;
+    position: relative; 
+    max-width: 640px; 
+    min-height: 100%; 
+    margin: 0 auto; 
+    overflow: hidden;
+    height: 100%;
+
+}
+
+.f-hide{display: none !important;}
+.loading-img{position: fixed; left: 50%; top: 50%; width: 152px; height: 188px; margin: -94px 0 0 -86px ;}
+
+
+.page_nav{
+    position: absolute;
+    width: 20%;
+    left: 40%;
+    bottom: 5%;
+    z-index: 200;
+    background:url(../img/swiper/page_nav.png) no-repeat center 0;
+    background-size: 100% auto;
+    min-height: 70px;
+    -webkit-animation: arrowTop 1.5s infinite 0s; 
+}
+@-webkit-keyframes arrowTop {
+    0% {
+        -webkit-transform: translate3d(0, 42px, 0);
+        opacity: 0
+    }
+    60% {
+        -webkit-transform: translate3d(0, 12px, 0);
+        opacity: 1
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 0
+    }
+}
+/* swipe */
+.swipe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.swiper-wrapper >li{display: none;position: absolute; left: 0; top: 0; width: 100%; height: 100%;  background-color: #fff;}
+.swiper-wrapper >li.cur{z-index: 10; display: block;}
+.swiper-wrapper >li.action{z-index: 11; display: block;}
+.swiper-wrapper >li.animated{-webkit-transition: .3s;}
+.swipe img{max-width: 640px;}
+.swiper-wrapper >li > div{
+    width: 100%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    /*display: -webkit-box; */
+    padding:0; 
+    /*-webkit-box-pack: center; 
+    -webkit-box-align: center;*/
+}
+.page {
+    position: relative;
+    overflow: hidden;
+    /*background-image: url(../images/bg.jpg);*/
+}
+
+
+
+
+.load-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 300;
+    color: #000;
+    left: 0;
+    top: 0;
+    background: #fff url(../img/public/loading-32.gif) no-repeat center center;
+}
+.load-container .load-txt {
+    margin: 0 auto;
+    width: 167px;
+    height: 85px;
+    color: #000;
+    text-align: center;
+    margin-top: 80px;
+    font-size: 16px;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+
+.p-bg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top:0;
+    height: 100%;
+    z-index: -1;
+}
+
+.u-audio {
+    position: absolute;
+    z-index: 200;
+    right: 20px;
+    top:20px;
+}
+.u-audio a{
+    display: block;
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.share-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: url(../img/swiper/share-bg1.png) no-repeat 0 0 ;
+    background-color: rgba(0,0,0,0.5);
+    background-size: 100% 100%;
+}
+.share-container a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.xx {
+    position: absolute;
+    left: -999999px;
+    top:-999999px;
+}
+
+
+
+
+.u-audio {
+    position: absolute;
+    z-index: 200;
+    right: 20px;
+    top:20px;
+}
+.u-audio a{
+    display: block;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+.css_sprite01 {
+    background: url(../img/swiper/music.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
+.video-box {
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    bottom: 20%;
+    z-index: 30;
+}
+@media screen and (max-width: 320px) {
+  
+}
+
+.copyright {
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    left:50%;
+    margin-left: -75px;
+    bottom: 10px;
+    background: url(../img/public/cmmgc.png) no-repeat center center ;
+    background-size: 80% auto;
+    
+    border-radius: 50px;
+    z-index: 10;
+}
+.copyright.sp{
+    background-color: rgba(255,255,255,0.5);
+}
+
+.cur .scan_container {
+    -webkit-animation: scan_container_in 1.5s ease 2s 1;
+    -moz-animation: scan_container_in 1.5s ease 2s 1;
+    -ms-animation: scan_container_in 1.5s ease 2s 1;
+    -o-animation: scan_container_in 1.5s ease 2s 1;
+    animation: scan_container_in 1.5s ease 2s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+.scan_container {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 8px;
+    bottom: 8px;
+    background: url("../img/swiper/scan_container.png") center center no-repeat;
+    background-size: 100% 100%;
+    opacity: 0;
+}
+@-webkit-keyframes scan_container_in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+
+
+
+.scan_line {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 0;
+  height: 5px;
+  bottom: 8px;
+  background: url("../img/swiper/scan_line.png") center center no-repeat;
+  background-size: 100% 100%;
+  opacity: 0; }
+
+.cur .scan_line {
+  -webkit-animation: lineWalkRound 6s ease 1.25s infinite;
+  -moz-animation: lineWalkRound 6s ease 1.25s infinite;
+  -ms-animation: lineWalkRound 6s ease 1.25s infinite;
+  -o-animation: lineWalkRound 6s ease 1.25s infinite;
+  animation: lineWalkRound 6s ease 1.25s infinite; }
+
+@-webkit-keyframes lineWalkRound {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0, 25px);
+    -moz-transform: translate(0, 25px);
+    -ms-transform: translate(0, 25px);
+    -o-transform: translate(0, 25px);
+    transform: translate(0, 25px); }
+  50% {
+    -webkit-transform: translate(0, 460px);
+    -moz-transform: translate(0, 460px);
+    -ms-transform: translate(0, 460px);
+    -o-transform: translate(0, 460px);
+    transform: translate(0, 460px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 25px);
+    -moz-transform: translate(0, 25px);
+    -ms-transform: translate(0, 25px);
+    -o-transform: translate(0, 25px);
+    transform: translate(0, 25px); } }
+
+.animate .title_bg_line {
+    -webkit-animation: spin 30s linear 0s infinite;
+    -moz-animation: spin 30s linear 0s infinite;
+    -ms-animation: spin 30s linear 0s infinite;
+    -o-animation: spin 30s linear 0s infinite;
+    animation: spin 30s linear 0s infinite;
+}
+

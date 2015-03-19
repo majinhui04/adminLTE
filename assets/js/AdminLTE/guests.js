@@ -1,0 +1,61 @@
+/*
+    访客
+ */
+(function(){
+    window.Guests = [{
+        username:'mjh',
+        name:'马金慧',
+        avatar:'https://avatars1.githubusercontent.com/u/5791060'
+    },
+    {
+        username:'xl',
+        name:'徐磊',
+        avatar:'/public/assets/img/avatar/1.jpg'
+    },
+    {
+        username:'hsk',
+        name:'黄思珂',
+        avatar:'/public/assets/img/avatar/2.jpg'
+    },
+    {
+        username:'cmx',
+        name:'陈铭翔',
+        avatar:'/public/assets/img/avatar/3.jpg'
+    },
+    {
+        username:'ylz',
+        name:'杨礼尊',
+        avatar:'/public/assets/img/avatar/4.jpg'
+    },
+    {
+        username:'wsh',
+        name:'巫上华',
+        avatar:'/public/assets/img/avatar/5.jpg'
+    },
+    {
+        username:'sgc',
+        name:'苏工',
+        avatar:'/public/assets/img/avatar/6.jpg'
+    },
+    {
+        username:'syf',
+        name:'沈一帆',
+        avatar:'/public/assets/img/avatar/7.jpg'
+    },
+    {
+        username:'czj',
+        name:'蔡工',
+        avatar:'/public/assets/img/avatar/8.jpg'
+    },
+    {
+        username:'wr',
+        name:'王蕊',
+        avatar:'/public/assets/img/avatar/9.jpg'
+    },
+    {
+        username:'zjl',
+        name:'祝江力',
+        avatar:'/public/assets/img/avatar/10.jpg'
+    }];
+})();
+    

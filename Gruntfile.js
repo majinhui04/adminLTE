@@ -8,7 +8,7 @@ module.exports = function(grunt) {
             scss: './css/sass', //推荐使用Sass
             css: './css', //若简单项目，可直接使用原生CSS，同样可以grunt watch:base进行监控
             js: './assets/js', //js文件相关目录
-            img: './img' //图片相关
+            img: './assets/img' //图片相关
         },
         buildType: 'Build',
         pkg: grunt.file.readJSON('package.json'),
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     //'<%= paths.assets %>/js/min.v.js': '<%= paths.js %>/app.js'
-                    'projects/alimama/assets/js/app.min.js': 'projects/alimama/assets/js/app.js'
+                    //'projects/alimama/assets/js/app.min.js': 'projects/alimama/assets/js/app.js'
                 }
             }
         },
@@ -84,10 +84,30 @@ module.exports = function(grunt) {
                     dest: 'build/'
                 }, {
                     expand: true,
-                    src: ['*', '!.gitignore', '!.DS_Store', '!Gruntfile.js', '!package.json', '!node_modules/**', '!go.sh', '!.ftppass', '!<%= archive_name %>*.zip'],
+                    src: ['*', '!.gitignore', '!.DS_Store', '!Gruntfile.js', '!package.json', '!resource/**','!h5/**','!projects/**','!node_modules/**', '!go.sh', '!.ftppass', '!<%= archive_name %>*.zip'],
                     dest: 'build/'
                 }, ]
             },
+
+            xx: {
+                files: [{
+                    expand: true,
+                    src: ['assets/**'],
+                    dest: 'build/'
+                },
+                {
+                    expand: true,
+                    src: ['admin/**'],
+                    dest: 'build/'
+                },
+                {
+                    expand: true,
+                    src: ['demos/**'],
+                    dest: 'build/'
+                }, 
+                ]
+            },
+
 
             images: {
                 expand: true,
@@ -225,24 +245,8 @@ module.exports = function(grunt) {
                     authKey: 'key2'
                 },
                 cache: 'sftpCache.json',
-                src: 'projects/alimama',
-                dest: '/var/www/html/majinhui/alimama',
-                exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp'],
-                serverSep: '/',
-                concurrency: 4,
-                progress: true
-            }
-        },
-        'alimama1': {
-            build: {
-                auth: {
-                    host: '121.199.36.124',
-                    port: 22,
-                    authKey: 'key2'
-                },
-                cache: 'sftpCache1.json',
-                src: 'projects/alimama',
-                dest: '/var/www/html/majinhui/alimama',
+                src: 'build',
+                dest: '/var/www/html/public',
                 exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp'],
                 serverSep: '/',
                 concurrency: 4,
@@ -283,5 +287,11 @@ module.exports = function(grunt) {
     grunt.registerTask('app', [ 'uglify']);
     //执行 grunt gcc 可进行谷歌压缩
     grunt.registerTask('gcc', ['closure-compiler']);
+
+
+
+    // 
+    grunt.registerTask('copyxx', ['clean:pre','copy:xx']);
+    grunt.registerTask('publishxx', ['clean:pre','copy:xx','sftp-deploy']);
 
 };
