@@ -3,56 +3,67 @@
  */
 (function(){
     window.Guests = [{
+        id:1,
         username:'mjh',
         name:'马金慧',
         avatar:'https://avatars1.githubusercontent.com/u/5791060'
     },
     {
+        id:2,
         username:'xl',
         name:'徐磊',
         avatar:'/public/assets/img/avatar/1.jpg'
     },
     {
+        id:3,
         username:'hsk',
         name:'黄思珂',
         avatar:'/public/assets/img/avatar/2.jpg'
     },
     {
+        id:4,
         username:'cmx',
         name:'陈铭翔',
         avatar:'/public/assets/img/avatar/3.jpg'
     },
     {
+        id:5,
         username:'ylz',
         name:'杨礼尊',
         avatar:'/public/assets/img/avatar/4.jpg'
     },
     {
+        id:6,
         username:'wsh',
         name:'巫上华',
         avatar:'/public/assets/img/avatar/5.jpg'
     },
     {
+        id:7,
         username:'sgc',
         name:'苏工',
         avatar:'/public/assets/img/avatar/6.jpg'
     },
     {
+        id:8,
         username:'syf',
         name:'沈一帆',
         avatar:'/public/assets/img/avatar/7.jpg'
     },
     {
+        id:9,
         username:'czj',
         name:'蔡工',
         avatar:'/public/assets/img/avatar/8.jpg'
     },
     {
+        id:10,
         username:'wr',
         name:'王蕊',
         avatar:'/public/assets/img/avatar/9.jpg'
     },
     {
+        id:11,
         username:'zjl',
         name:'祝江力',
         avatar:'/public/assets/img/avatar/10.jpg'

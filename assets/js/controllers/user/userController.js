@@ -59,7 +59,9 @@ define(function(require, exports, module) {
                 userDao.list({ xx:222 },function(result){
                     var list = result.data || [];
                     
-                    $scope.dataList = list;
+                    //$scope.dataList = list;
+                    $scope.dataList = window.Guests;
+                    console.log(list)
 
                 },function(result){
                     mNotice(result.message,'error');

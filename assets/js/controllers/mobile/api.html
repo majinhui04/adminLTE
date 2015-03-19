@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="iMobile UI 是一个移动优先的跨屏前端框架。">
+    <meta name="keywords" content="HTML, HTML5, CSS, CSS3, JS, JavaScript, framework, front-end, frontend, web development, 前端框架，开源">
+    <title>iMobileUI</title>
+    <link rel="shortcut icon" type="images/x-icon" href="favicon.png" /> 
+    <link rel="icon" type="images/x-icon" href="favicon.png" /> 
+    <link rel="stylesheet" href="/public/assets/vendor/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/assets/css/doc/docs.min.css">
+    <link rel="stylesheet" href="/public/assets/css/doc/amaze.min.css">
+    <link rel="stylesheet" href="/public/assets/css/doc/amazeui.min.css">
+    <script src="/public/assets/vendor/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+   
+    
+    <div class="content-container doc-content">
+        <h1 id="css">CSS <a href="#css" title="Heading anchor" class="doc-anchor"></a></h1>
+        <hr>
+        <div class="doc-toc">
+            <h2>
+                <span>目录</span>
+            </h2>
+            <div class="doc-toc-bd">
+                <ul class="md-toc">
+                    <li class="am-parent am-open">
+                        <a href="#css-%E6%A6%82%E8%BF%B0">CSS 概述</a>
+                        <ul class="am-collapse am-in">
+                            <li>
+                                <a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%89%8D%E7%BC%80">浏览器前缀</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%AD%E7%82%B9">响应式断点</a>
+                    </li>
+                    <li>
+                        <a href="#%E4%BD%BF%E7%94%A8-html5">使用 HTML5</a>
+                    </li>
+                    <li>
+                        <a href="#%E7%A7%BB%E5%8A%A8%E4%BC%98%E5%85%88">移动优先</a>
+                    </li>
+                    <li class="am-parent am-open">
+                        <a href="#%E5%9B%BD%E6%83%85%E5%9B%BD%E6%83%85">国情国情</a>
+                        <ul class="am-collapse am-in">
+                            <li>
+                                <a href="#%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E">渲染引擎</a>
+                            </li>
+                            <li>
+                                <a href="#%E9%98%B2%EF%BC%88zh%C4%93n%EF%BC%89%E7%8B%BC%EF%BC%88c%C4%81o%EF%BC%89%E6%9C%AF%EF%BC%88d%C3%A0i%EF%BC%89">防（zhēn）狼（cāo）术（dài）</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="am-parent am-open">
+                        <a href="#class-%E5%91%BD%E5%90%8D%E8%AF%B4%E6%98%8E">Class 命名说明</a>
+                        <ul class="am-collapse am-in">
+                            <li>
+                                <a href="#%E5%85%B3%E6%B3%A8%E5%88%86%E7%A6%BB">关注分离</a>
+                            </li>
+                            <li>
+                                <a href="#%E2%80%9C%E5%A4%9A%E7%B1%BB%E7%97%87%E2%80%9D%EF%BC%88classitis%EF%BC%89">“多类症”（Classitis）</a>
+                            </li>
+                            <li>
+                                <a href="#%E9%80%89%E6%8B%A9%E7%AC%A6%E4%B9%A6%E5%86%99">选择符书写</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="web-组件演示">
+            Web 组件演示
+            <a href="#web-%E7%BB%84%E4%BB%B6%E6%BC%94%E7%A4%BA" title="Heading anchor" class="doc-anchor"></a>
+        </h2>
+        <p>Amaze UI 目前封装了 10 余个主要面向移动端的 Web 组件（<a href="/widgets/m">独立窗口中浏览 Demo</a>）。</p>
+
+        <h2 id="使用场景">
+            使用场景
+            <a href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" title="Heading anchor" class="doc-anchor"></a>
+        </h2>
+        <h3 id="使用模板">
+            使用模板
+            <a href="#%E4%BD%BF%E7%94%A8%E6%A8%A1%E6%9D%BF" title="Heading anchor" class="doc-anchor"></a>
+        </h3>
+        <p>通过模板（hbs）将数据和 HTML 分离，这是 Web 组件的价值之一。用户可以在不同的开发环境中使用 Web 组件。</p>
+
+        <h4 id="纯浏览器环境">
+            纯浏览器环境
+            <a href="#%E7%BA%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83" title="Heading anchor" class="doc-anchor"></a>
+        </h4>
+        <p>
+            Amaze UI 提供的开发模板中，包含一个
+            <code>widget.html</code>
+            文件，里面展示了 Widget 在纯浏览器环境中的使用。
+        </p>
+        <p> <strong>要点如下：</strong>
+        </p>
+        <ol>
+            <li>
+                引入 Handlebars 模板
+                <code>handlebars.min.js</code>
+                ；
+            </li>
+            <li>
+                引入 Amaze UI Widget helper
+                <code>amui.widget.helper.js</code>
+                ；
+            </li>
+            <li>
+                根据需求编写模板
+                <code>&lt;script type="text/x-handlebars-template" id="amz-tpl"&gt;{{&gt;slider slider}}&lt;/script&gt;</code>
+                ；
+            </li>
+            <li>传入数据，编译模板并插入页面中。</li>
+        </ol>
+
+        <div class="doc-code demo-highlight">
+            
+        </div>
+
+    </div>
+
+    
+   
+
+
+
+
+
+</body>
+
+
+</html>

@@ -110,8 +110,9 @@
 */
 
 (function(){
+    window.IGrow = window.IGrow || {};
     var dir = window.iDir;
-    var IGrow = window['IGrow'] = {
+    var IGrow = $.extend(window['IGrow'], {
         login:dir + '/login.html',
         logout:dir + '/app/dao/logout.php',
         admin:dir + '/admin.html',
@@ -146,6 +147,21 @@
                     
                 },
                 templateUrl: '/assets/js/controllers/dashboard/dashboard.html',
+                dependency:[],
+                description:''
+            },
+
+            /*
+                Mobile
+            */
+            {
+                route:'/mobile/api',
+                title:'移动端',
+                controller: function($scope, $routeParams, $location) {
+                    
+                    //  /assets/js/controllers/mobile/api.html
+                },
+                template: '<div class="wrapper"><iframe autoiframe id="frameWin" src="/public/assets/js/controllers/mobile/api.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
                 dependency:[],
                 description:''
             },
@@ -254,7 +270,7 @@
             
             
         ]
-    };
+    });
     
 
 

@@ -77,6 +77,30 @@ define(function(require, exports, module) {
             }
         }
     });
+
+    // auto iframe
+    app.directive('autoiframe', function () {
+       
+        return {
+            restrict: 'A',
+            require: '?ngModel',
+            link: function (scope, elm, attr, ngModelCtrl) {
+                var iframe = elm[0];
+                
+                iframe.onload = function(){
+                    //var iframe = document.getElementById("frameWin");
+                    var newHeight;
+                    if (iframe.document) {
+                        newHeight = iframe.document.body.scrollHeight + 20 + "px";
+                    } else {
+                        newHeight = iframe.contentDocument.body.scrollHeight + 20 + "px";
+                    }
+                    iframe.style.height = newHeight;
+                }
+               
+            }
+        }
+    });
     /*分页*/
     app.directive('pagination', function () {
        
@@ -139,12 +163,13 @@ define(function(require, exports, module) {
     
     /* 自定义 MLoading */
     app.factory('mLoading',function(){
-        return Utils.mLoading;
+        console.log(111111,IGrow)
+        return IGrow.mobile.loading;
     });
     /* 自定义 MNotice */
     app.factory('mNotice',function(){
 
-        return Utils.mNotice;
+        return {};
     });
     app.controller('adminController',['$scope','$q','$route','$timeout','routeConfig','resource', 'mLoading','mNotice','$routeParams','$route',function($scope,$q,$route,$timeout,routeConfig,resource,mLoading,mNotice,$routeParams,$route){
         var userDao = resource('/user',{ extra:'user' },{current:{}});
