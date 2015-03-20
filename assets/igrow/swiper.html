@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5宣传页</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="IGrow UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <!-- no cache -->
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="pragram" content="no-cache">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+   
+    
+    <link rel="stylesheet" href="css/igrow.css">
+    <link rel="stylesheet" href="css/igrow.plugins.css">
+    <link rel="stylesheet" href="css/igrow.animate.css">
+    <link rel="stylesheet" href="css/igrow.swiper.css">
+
+    <script src="http://121.199.36.124/public/assets/vendor/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://121.199.36.124/public/assets/vendor/swiper/2.7.0/idangerous.swiper.min.js"></script>
+    <style>
+        body {
+            color: #FFF;
+            text-align: center;
+        }
+        .container h2 {
+            padding: 30px 0;
+            font-weight: bold;
+        }
+      
+        .p-bg1 {
+            background-color: #dd514c;
+        }
+        .p-bg2 {
+            background-color: #f37b1d;
+        }
+        .p-bg3 {
+            background-color: #FFCC33;
+        }
+        .p-bg4 {
+            background-color: #5eb95e;
+        }
+        .p-bg5 {
+            background-color: #55cc33;
+        }
+        .p-bg6 {
+            background-color: #0f9ae0;
+        }
+        .p-bg7 {
+            background-color: purple;
+        }
+
+
+    </style>
+    <script>
+    /* 预加载图片 */
+    var SwiperApp = {
+        imgs:[]
+    };
+    </script>
+</head>
+<body>
+    <!-- 分享图片 500*500px-->
+    <div class="xx">
+        <img src="./assets/images/share.jpg" alt="">
+    </div>
+    
+    <!-- 音乐 -->
+    <div class="u-audio">
+        <div class="xx">
+            <audio src="./assets/music/bmg.mp3" loop autoplay preload id="music"></audio>
+        </div>
+        <a href="javascript:;" class="css_sprite01 audio_open" id="btn-audio"></a>
+    </div>
+
+    <!-- 加载 -->
+    <div class="load-container swiper-load-container">
+        <span class="load-txt"></span>
+        <section class="copyright"></section>
+    </div>
+    
+    <!-- 正式 -->
+    <div class="container" id="container" onselectstart="return true;" ondragstart="return false;">
+        
+        <div class="swipe " id="swipe">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide page ">
+                    <!-- 背景 -->
+                    <div class="p-bg p-bg1"></div>
+                    <!-- 内容 -->
+                    <h2 class="txt-sprite">我是一个h5宣传页</h2>
+                    <!-- 箭头 -->
+                    <div class="page_nav"></div>
+                </div>
+               
+                <div class="swiper-slide page ">
+                    <div class="p-bg p-bg2"></div>
+                    <h2 class="txt-sprite">我很2</h2>
+                    <div class="page_nav"></div>
+                </div>
+                <div class="swiper-slide page ">
+                    <div class="p-bg p-bg3"></div>
+                    <h2 class="txt-sprite">我不做小三</h2>
+                    <div class="page_nav"></div>
+                </div>
+                <div class="swiper-slide page ">
+                    
+                    <div class="p-bg p-bg4"></div>
+                    <h2 class="txt-sprite">我喜欢4s</h2>
+                
+                    <div class="page_nav"></div>
+                </div>
+                <div class="swiper-slide page ">
+                    <div class="p-bg p-bg5"></div>
+                    <h2 class="txt-sprite">没看爱情公寓5</h2>
+                    <div class="page_nav"></div>
+                </div>
+
+                <div class="swiper-slide page ">
+                    <div class="p-bg p-bg6"></div>
+                    <h2 class="txt-sprite">游戏玩得有点'6'</h2>
+                    <div class="page_nav"></div>
+                </div>
+
+                <div class="swiper-slide page ">
+                    <div class="p-bg p-bg7"></div>
+                    <h2 class="txt-sprite">7待，哪天遇见你</h2>
+                    <div class="page_nav"></div>
+                </div>
+ 
+                
+            </div>
+            
+        </div>
+
+    
+    </div>
+    
+   
+    <script src="js/igrow.swiper.js"></script>
+</body>
+</html>

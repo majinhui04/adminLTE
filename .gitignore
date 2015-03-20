@@ -8,3 +8,4 @@ build/
 build1/
 resource/
 test/
+sftpCache.json

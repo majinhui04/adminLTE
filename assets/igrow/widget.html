@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>IGrow API</title>
+    <link rel="stylesheet" href="css/igrow.css">
+    <link rel="stylesheet" href="css/igrow.plugins.css">
+    <script src="/public/assets/vendor/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./igrow.js"></script>
+    <script>
+    window.console = window.console || {
+      log:function(){},
+      warn:function(){}
+    };
+    </script>
+    <style>
+    body {
+      counter-reset: section 0 heading 0;
+    }
+    .module {
+      padding:0 20px;
+    }
+    .doc h2{
+      counter-increment: heading;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .doc h2:before{
+      content: counter(heading) '.';
+    }
+    .inputWrapper {
+      margin-bottom: 10px;
+    }
+    .form-actions {
+      padding-top: 15px;
+    }
+    </style>
+</head>
+<body class="doc">
+
+    <section class="module">
+        <h2>Loading</h2>
+        <p>
+            <button class="button-primary" id="btn-mload-show">显示</button>
+            <button class="button-primary" id="btn-mload-hide">隐藏</button>
+            <button class="button-primary" id="btn-mload-success">成功</button>
+        </p>
+    </section>
+
+    <section class="module">
+        <h2>提示框</h2>
+        <p>
+            <button class="button-primary" id="btn-mdialog-alert">alert</button>
+            <button class="button-primary" id="btn-mdialog-confirm">confirm</button>
+        </p>
+    </section>
+
+    <section class="module">
+        <h2>弹出层</h2>
+        <p>
+            <button class="button-primary" id="btn-mdialog-modal">弹出层</button>
+        </p>
+    </section>
+   
+    <div id="m-alert1"  class="modal m-dialog1">
+      
+       <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+         <div class="modal-title">
+          报名
+         
+         </div>
+         <div class="modal-body">
+            <form method="post" novalidate name="register" id="register"  class="">
+            
+              <div class="inputWrapper " >
+                  <label class="required">邮箱</label>
+                  <div class="inputLayoutWrapper">
+                      <!-- fieldInvalid -->
+                      <input class=""  id="email" name="email" type="email"  placeholder="邮箱地址" >
+                      <div class="field-problem ng-hide" >
+                          <!-- ngIf: !state.isValid -->
+                          <p >
+                              <span class="ng-binding">请输入正确的格式</span>
+                          </p>
+                          <!-- end ngIf: !state.isValid -->
+                          <!-- ngIf: state.isValid && forceError -->
+                      </div>
+                      <small>提示语句</small>
+                
+                  </div>
+              </div>
+
+              
+
+              <div class="inputWrapper " >
+                  <label class="required">地址:</label>
+                  <div class="inputLayoutWrapper">
+                      <select name="iFrom" id="iFrom">
+                          <option value="">请选择</option>
+                          <option value="A">杭州</option>
+                          <option value="B">宁波</option>
+                          <option value="C">温州</option>
+                          <option value="D">绍兴</option>
+                      </select>
+                  </div>
+              </div>
+
+              
+
+              <p class="form-actions text-center">
+                  <button data-dismiss="modal" id="RegisterForm" name="RegisterForm" class="button-primary" type="submit" style="width:90%;">确定</button>
+              </p>
+
+          </form>
+         </div>
+        
+        </div>
+       </div>
+  </div>
+  
+
+  <!-- <div class="m-modal"></div>
+    <div class="m-dialog" style="left:100px;top:100px;">
+        <div class="m-content">
+            <div class="m-txt">内容啊</div>
+        </div>
+        <div class="m-footer">
+            <button class="m-btn m-btn-success">确认</button>
+            <button class="m-btn">取消</button>
+        </div>
+    </div> -->
+   <script>
+   $(function(){
+        var IGrow = window.IGrow, 
+            Mediator = IGrow.Mediator,
+            MLoading = IGrow.mobile.loading;
+
+
+
+        $('#btn-mload-show').bind('click',function(){
+            MLoading.show();
+        });
+        $('#btn-mload-hide').bind('click',function(){
+            MLoading.hide();
+        });
+        $('#btn-mload-success').bind('click',function(){
+            MLoading.success('success');
+        });
+
+
+        var MDialog = IGrow.mobile;
+        $('#btn-mdialog-alert').bind('click',function(){
+            MDialog.alert('你TM太刚');
+        });
+        $('#btn-mdialog-confirm').bind('click',function(){
+            MDialog.confirm('你忍心关了我?',function(){
+                alert('忍心');
+            },function(){
+                alert('不忍心');
+            });
+        });
+
+        $('#btn-mdialog-modal').bind('click',function(){
+
+            $('#m-alert1').modal({backdrop:true})
+        });
+        
+
+        
+
+
+
+
+
+   });
+   </script>
+    
+</body>
+</html>

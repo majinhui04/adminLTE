@@ -211,7 +211,18 @@ body {
 }
 
 
-
+/*-------------*/
+.txt-sprite {
+    opacity: 0;
+    transform: translate(0px,200%);
+    -webkit-transform: translate(0px,200%);
+    -webkit-transition: all 1000ms ease-out 0.3s;
+}
+.cur .txt-sprite{
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
 
 .load-container {
     position: fixed;
@@ -262,7 +273,9 @@ body {
     line-height: 44px;
     vertical-align: middle;
 }
-
+.audio_open {
+    -webkit-animation: reverseRotataZ 3s linear  0s infinite ;
+}
 .share-container {
     display: none;
     position: fixed;

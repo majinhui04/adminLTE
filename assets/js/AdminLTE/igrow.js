@@ -161,7 +161,7 @@
                     
                     //  /assets/js/controllers/mobile/api.html
                 },
-                template: '<div class="wrapper"><iframe autoiframe id="frameWin" src="/public/assets/js/controllers/mobile/api.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
+                template: '<div class="wrapper"><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/api.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
                 dependency:[],
                 description:''
             },

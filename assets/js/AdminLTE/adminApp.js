@@ -267,23 +267,25 @@ define(function(require, exports, module) {
 
 
             function hashChange(hash) {
-            
+                var modules = IGrow.modules || [];
                 var hash = hash || location.hash|| '',
                     match = /(#\/\w+)\/?\S*?/.exec(hash),
                     route = match?match[1]:'',
                     $target = $('.sidebar').find('a[href="'+route+'"]'),
-                    title = $target.attr('data-title') || $target.text() || '',
+                    title = '',
                     $parent = $target.closest('.treeview');
 
-                //console.log(hash,route,$target,$target.length,$parent.length,$parent)
-                if(!$target.length) {
-                    return;
-                }
-
+                console.log(hash,route,111)
+                
+                for (var i = modules.length - 1; i >= 0; i--) {
+                    if(modules[i].route == hash.substring(1)){
+                        title = modules[i].title;
+                        break;
+                    }
+                };
+                console.log('title',title)
                 $('.content-header h1 span,.breadcrumb .active').text(title);
-                if($parent.length) {
-                    //$parent.children('a').trigger('click');
-                }
+                
                 $('.treeview-menu >li >a').removeClass('active');
                 $target.addClass('active');
             }
