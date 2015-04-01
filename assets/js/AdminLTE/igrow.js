@@ -161,7 +161,29 @@
                     
                     //  /assets/js/controllers/mobile/api.html
                 },
-                template: '<div class="wrapper"><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/api.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
+                template: '<div class=""><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/api.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
+                dependency:[],
+                description:''
+            },
+            {
+                route:'/mobile/animate',
+                title:'动画',
+                controller: function($scope, $routeParams, $location) {
+                    
+                    //  /assets/js/controllers/mobile/api.html
+                },
+                template: '<div class=""><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/animate.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
+                dependency:[],
+                description:''
+            },
+            {
+                route:'/mobile/animate1',
+                title:'animate.css',
+                controller: function($scope, $routeParams, $location) {
+                    
+                    //  /assets/js/controllers/mobile/api.html
+                },
+                template: '<div class=""><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/animate_css.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
                 dependency:[],
                 description:''
             },

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="iMobile UI 是一个移动优先的跨屏前端框架。">
+    <meta name="keywords" content="HTML, HTML5, CSS, CSS3, JS, JavaScript, framework, front-end, frontend, web development, 前端框架，开源">
+    <title>动画</title>
+    <link rel="shortcut icon" type="images/x-icon" href="favicon.png" /> 
+    <link rel="icon" type="images/x-icon" href="favicon.png" /> 
+    <link rel="stylesheet" href="/public/assets/vendor/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/assets/css/doc/docs.min.css">
+    <link rel="stylesheet" href="/public/assets/css/doc/amaze.min.css">
+    <link rel="stylesheet" href="/public/assets/css/doc/amazeui.min.css">
+    <link rel="stylesheet" href="/public/assets/igrow/css/igrow.animate.css">
+    <script src="/public/assets/vendor/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei';
+        }
+        .canvas-wrapper {
+            width: 320px;
+            height: 480px;
+            position: relative;
+            margin: 10px auto;
+            background-color: #dd514c;
+        }
+        .canvas-title{
+            padding: 20px;
+            color: #FFF;
+            text-align: center;
+        }
+        .act-txt {
+
+        }
+
+        .reverseRotataZ {
+            /*-webkit-transition: all .25s ease|linear|ease-in|ease-out|ease-in-out|cubic-bezier(<number>,<number>,<number>,<number>);*/
+             
+            -webkit-animation: reverseRotataZ 3s linear 1s infinite;
+        }
+        .fadeInRight {
+            -webkit-animation: fadeInRight 1s ease 1s 1;
+        }
+        .fadeInLeft {
+            -webkit-animation: fadeInLeft 1s ease 1s 1;
+        }
+        .fadeIn-bottom {
+            -webkit-animation: fadeIn-bottom 1s ease 1s 1;
+        }
+        .swing {
+            -webkit-animation: swing 3s ease-in 1s infinite;
+        }
+        .flipInY {
+            -webkit-animation: flipInY 1s linear 1s;
+        }
+        .aniamte1 {
+
+        }
+
+
+        /* 场景1 */
+        .canvas-wrapper2 {
+            background-color: #002c93;
+            overflow: hidden;
+        }
+        .twinkling-stars {
+    width: 100%;
+    position: absolute;
+    top: 47%
+}
+
+.star {
+    max-width: 3%;
+    position: absolute
+}
+
+.star i {
+    display: block
+}
+
+.star i img {
+    width: 100%;
+    display: block
+}
+
+.star1 {
+    width: 3%;
+    left: 10%
+}
+
+.star2 {
+    width: 2%;
+    left: 30%;
+    top: 3rem
+}
+
+.star2 i {
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s
+}
+
+.star3 {
+    width: 1%;
+    left: 20%;
+    top: 5rem
+}
+
+.star3 i {
+    -webkit-animation-delay: .7s;
+    animation-delay: .7s
+}
+
+.star4 {
+    width: 2.5%;
+    left: 60%;
+    top: 4rem
+}
+
+.star4 i {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s
+}
+
+.star5 {
+    width: .5%;
+    left: 95%
+}
+
+.star6 {
+    width: 1%;
+    left: 15%;
+    top: 6rem
+}
+
+.star7 {
+    width: 1.5%;
+    left: 50%;
+    top: 5rem
+}
+
+.star8 {
+    width: 3%;
+    left: 85%;
+    top: 4rem
+}
+
+.star9 {
+    width: 1%;
+    left: 40%;
+    top: 5.5rem
+}
+
+.star9 i {
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s
+}
+
+.star10 {
+    width: 1.5%;
+    left: 80%;
+    top: 2rem
+}
+
+.star11 {
+    width: .5%;
+    left: 1%;
+    top: 4rem
+}
+
+@-webkit-keyframes twinkling {
+    0% {
+        opacity: 0;
+        -webkit-transform: rotate(0deg) scale3d(0,0,0)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: rotate(180deg) scale3d(1,1,1)
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: rotate(360deg) scale3d(0,0,0)
+    }
+}
+
+@keyframes twinkling {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale3d(0,0,0)
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(360deg) scale3d(1,1,1)
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(360deg) scale3d(0,0,0)
+    }
+}
+
+.twinkling {
+    -webkit-animation: twinkling 1.5s infinite linear;
+    animation: twinkling 1.5s infinite linear
+}
+
+
+.muppets {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: 9
+}
+
+.muppets .item {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute
+}
+
+.muppets .line {
+    width: 1px;
+    height: 53%;
+    display: block;
+    background-color: #0070a5
+}
+
+.muppets .muppets-pic {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin-left: -40px
+}
+
+.muppets .muppets-pic img {
+    display: block;
+    margin: 0 auto
+}
+
+.muppets .item.item1 {
+    top: -3rem;
+    -webkit-animation-delay: -10s;
+    animation-delay: -10s
+}
+
+.muppets .item.item2 {
+    -webkit-animation-delay: -7.5s;
+    animation-delay: -7.5s
+}
+
+.muppets .item.item3 {
+    top: -3rem;
+    -webkit-animation-delay: -5s;
+    animation-delay: -5s
+}
+
+.muppets .item.item4 {
+    -webkit-animation-delay: -2.5s;
+    animation-delay: -2.5s
+}
+
+.muppets .item.item5 {
+    top: -3rem
+}
+
+.muppets .item.item6 {
+    left: -50%;
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s
+}
+
+.muppets .item2 .muppets-pic,.muppets .item6 .muppets-pic {
+    width: 60px;
+    margin-left: -30px
+}
+
+.muppets .item2 .muppets-pic img,.muppets .item6 .muppets-pic img {
+    width: 100%
+}
+
+@-webkit-keyframes muppetsCurveLeft {
+    0% {
+        left: 100%;
+        margin-top: -2rem
+    }
+
+    10% {
+        left: 85%;
+        margin-top: 0
+    }
+
+    20% {
+        left: 70%;
+        margin-top: -2rem
+    }
+
+    30% {
+        left: 55%;
+        margin-top: 0
+    }
+
+    40% {
+        left: 40%;
+        margin-top: -2rem
+    }
+
+    50% {
+        left: 25%;
+        margin-top: 0
+    }
+
+    60% {
+        left: 10%;
+        margin-top: -2rem
+    }
+
+    70% {
+        left: -5%;
+        margin-top: 0
+    }
+
+    80% {
+        left: -20%;
+        margin-top: -2rem
+    }
+
+    90% {
+        left: -35%;
+        margin-top: 0
+    }
+
+    100% {
+        left: -50%;
+        margin-top: -2rem
+    }
+}
+
+@keyframes muppetsCurveLeft {
+    0% {
+        left: 100%;
+        margin-top: -2rem
+    }
+
+    10% {
+        left: 85%;
+        margin-top: 0
+    }
+
+    20% {
+        left: 70%;
+        margin-top: -2rem
+    }
+
+    30% {
+        left: 55%;
+        margin-top: 0
+    }
+
+    40% {
+        left: 40%;
+        margin-top: -2rem
+    }
+
+    50% {
+        left: 25%;
+        margin-top: 0
+    }
+
+    60% {
+        left: 10%;
+        margin-top: -2rem
+    }
+
+    70% {
+        left: -5%;
+        margin-top: 0
+    }
+
+    80% {
+        left: -20%;
+        margin-top: -2rem
+    }
+
+    90% {
+        left: -35%;
+        margin-top: 0
+    }
+
+    100% {
+        left: -50%;
+        margin-top: -2rem
+    }
+}
+
+.muppetsCurveLeft {
+    animation: muppetsCurveLeft 15s infinite linear;
+    -webkit-animation: muppetsCurveLeft 15s infinite linear
+}
+
+@-webkit-keyframes muppetsUpDown {
+    0% {
+        margin-top: -1rem
+    }
+
+    10% {
+        margin-top: 0
+    }
+
+    20% {
+        margin-top: -1rem
+    }
+
+    30% {
+        margin-top: 0
+    }
+
+    40% {
+        margin-top: -1rem
+    }
+
+    50% {
+        margin-top: 0
+    }
+
+    60% {
+        margin-top: -1rem
+    }
+
+    70% {
+        margin-top: 0
+    }
+
+    80% {
+        margin-top: -1rem
+    }
+
+    90% {
+        margin-top: 0
+    }
+
+    100% {
+        margin-top: -1rem
+    }
+}
+
+@keyframes muppetsUpDown {
+    0% {
+        margin-top: -1rem
+    }
+
+    10% {
+        margin-top: 0
+    }
+
+    20% {
+        margin-top: -1rem
+    }
+
+    30% {
+        margin-top: 0
+    }
+
+    40% {
+        margin-top: -1rem
+    }
+
+    50% {
+        margin-top: 0
+    }
+
+    60% {
+        margin-top: -1rem
+    }
+
+    70% {
+        margin-top: 0
+    }
+
+    80% {
+        margin-top: -1rem
+    }
+
+    90% {
+        margin-top: 0
+    }
+
+    100% {
+        margin-top: -1rem
+    }
+}
+
+.muppetsUpDown {
+    animation: muppetsUpDown 15s infinite linear;
+    -webkit-animation: muppetsUpDown 15s infinite linear
+}
+#intro-text {
+left: 5%;
+top: 7rem;
+z-index: 80;
+}
+.animated {
+-webkit-animation-duration: .5s;
+animation-duration: .5s;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+}
+.icon {
+position: absolute;
+display: block;
+}
+#intro-text img {
+max-width: 92%;
+margin: 0 auto;
+}
+#intro {
+    position: absolute;
+    left: 0;
+    top:0;
+    width:100%;
+    height: 100%;
+background-image: url(http://i1.lifevccdn.com/Images/m/Sleep/preface_page.png);
+background-repeat: no-repeat;
+background-position: center 80%;
+background-size: 80%;
+}
+    </style>
+</head>
+<body>
+   
+    
+    <div class="content-container doc-content">
+        <h1 id="css">动画展示<a href="#css" title="Heading anchor" class="doc-anchor"></a></h1>
+        <hr>
+       
+
+        <h2 id="a1">
+            动画1
+            （<a href="/public/admin/pages/mobile/animate.html" target="_blank">独立窗口中浏览 Demo</a>）。
+        </h2>
+        <div class="btn-animate-list1">
+            <button type="button" class="am-btn am-btn-primary am-radius" data-aniamte="reverseRotataZ">reverseRotataZ</button>
+            <button type="button" class="am-btn am-btn-primary am-radius" data-aniamte="fadeInRight">fadeInRight</button>
+            <button type="button" class="am-btn am-btn-primary am-radius" data-aniamte="fadeInLeft">fadeInLeft</button>
+            <button type="button" class="am-btn am-btn-primary am-radius" data-aniamte="fadeIn-bottom">fadeIn-bottom</button>
+            <button type="button" class="am-btn am-btn-primary am-radius" data-aniamte="swing">swing</button>
+            <button type="button" class="am-btn am-btn-primary am-radius" data-aniamte="flipInY">flipInY</button>
+
+        </div>
+        <div class="canvas-wrapper canvas-wrapper1">
+            <h1 class="canvas-title act-txt">
+                <span class="aniamte1" id="aniamte1">其实我是一个演员</span>
+            </h1>
+
+
+        </div>
+
+        <h2>场景1</h2>
+        <div class="canvas-wrapper canvas-wrapper2">
+            <div id="intro"></div>
+            <div class="icon animated fadeIn" data-anim="animated fadeIn" id="intro-text"><img src="http://i2.lifevccdn.com/Images/m/Sleep/preface_text_v150311132540.png"></div>
+            <div class="twinkling-stars">
+                <div class="star star1"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star2"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star3"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star4"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star5"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star6"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star7"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star8"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star9"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star10"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+                <div class="star star11"><i data-anim="twinkling" class="twinkling"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></i></div>
+            </div>
+
+            <div class="muppets">
+                <div class="item item1 muppetsCurveLeft" data-anim="muppetsCurveLeft">
+                    <i class="line"></i>
+                    <span class="muppets-pic"><img src="http://i2.lifevccdn.com/Images/m/Sleep/star_v150311132540.png"></span>
+                </div>
+                <div class="item item2 muppetsCurveLeft" data-anim="muppetsCurveLeft">
+                    <i class="line"></i>
+                    <span class="muppets-pic"><img src="http://i1.lifevccdn.com/Images/m/Sleep/sheep_v150311132540.png"></span>
+                </div>
+                <div class="item item3 muppetsCurveLeft" data-anim="muppetsCurveLeft">
+                    <i class="line"></i>
+                    <span class="muppets-pic"><img src="http://i3.lifevccdn.com/Images/m/Sleep/moon_v150311132542.png"></span>
+                </div>
+                <div class="item item4 muppetsCurveLeft" data-anim="muppetsCurveLeft">
+                    <i class="line"></i>
+                    <span class="muppets-pic"></span>
+                </div>
+                <div class="item item5 muppetsCurveLeft" data-anim="muppetsCurveLeft">
+                    <i class="line"></i>
+                    <span class="muppets-pic"><img src="http://i1.lifevccdn.com/Images/m/Sleep/sheep_v150311132540.png"></span>
+                </div>
+                <div class="item item6 muppetsCurveLeft" data-anim="muppetsCurveLeft">
+                    <i class="line"></i>
+                    <span class="muppets-pic"><img src="http://i1.lifevccdn.com/Images/m/Sleep/sheep_v150311132540.png"></span>
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+    </div>
+
+    <script>
+    $(function(){
+        $(document).on('click','.btn-animate-list1 button',function(e){
+            var target = $(e.currentTarget);
+            var aniamteName = target.attr('data-aniamte');
+            console.log(111,aniamteName)
+
+            $('#aniamte1').attr('class','');
+
+            setTimeout(function(){
+                $('#aniamte1').addClass(aniamteName);
+            },200);
+        });
+    });
+
+    </script>
+   
+
+
+
+
+
+</body>
+
+
+</html>

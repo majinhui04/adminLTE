@@ -156,6 +156,18 @@
     </div>
     
    
-    <script src="js/igrow.swiper.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        effect: 'cube',
+        grabCursor: true,
+        cube: {
+            shadow: true,
+            slideShadows: true,
+            shadowOffset: 20,
+            shadowScale: 0.94
+        }
+    });
+    </script>
 </body>
 </html>
