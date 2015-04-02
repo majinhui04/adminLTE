@@ -294,6 +294,58 @@
         ]
     });
     
+    var modules = IGrow.modules;
+    var noop = function($scope){};
+    var template = '<div class=""><iframe autoiframe id="frameWin" src="{page}" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>';
+    var packgeM = function(m){
+        var result = {
+            route: m.href.substring(1),
+            controller: m.controller || noop,
+            title:m.title
+        };
+        console.log('result',result)
+        if(m.controllerUrl){
+            result.controllerUrl = m.controllerUrl;
+        }
+        if(m.templateUrl){
+            result.templateUrl = m.templateUrl;
+        }
+
+        if(m.template){
+            result.template = m.template;
+        }else {
+            result.template = template.replace('{page}',m.page);
+        }
+
+        return result;
+    };
+    if(window.Menus) {
+        for(var i = 0; i<window.Menus.length; i++) {
+            var menu = window.Menus[i];
+            var module = {};
+            if(menu.href.indexOf('javascript')>-1){
+
+            }else {
+                module = packgeM(menu);
+                modules.push(module);
+
+            }
+
+            if(menu.items){
+                
+                for(var j = 0; j<menu.items.length; j++) {
+                    menu1 = menu.items[j];
+                    if(!menu1.href.indexOf('javascript')>-1){
+                        module = packgeM(menu1);
+                        modules.push(module);
+                    }
+
+                }
+            }
+
+        }
+    }
+    
 
 
 

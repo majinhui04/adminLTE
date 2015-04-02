@@ -4,6 +4,9 @@ define(function(require, exports, module) {
     require('angular-lazyload');
     require('angular-core');
     require('angular-sanitize');*/
+    if(!location.hash) {
+        location.hash = '#/dashboard';
+    }
     
 
     var app = angular.module('adminApp', ['ngRoute','angular-lazyload', 'angular-core','ngSanitize']);
@@ -101,6 +104,55 @@ define(function(require, exports, module) {
             }
         }
     });
+
+    // treeview
+    app.directive('treeview', function () {
+       
+        return {
+            restrict: 'A',
+            //require: '?ngModel',
+            link: function (scope, elm, attr, ngModelCtrl) {
+                
+               return elm.each(function() {
+                    var btn = $(this).children("a").first();
+                    var menu = $(this).children(".treeview-menu").first();
+                    var isActive = $(this).hasClass('active');
+
+                    //initialize already active menus
+                    if (isActive) {
+                        menu.show();
+                        btn.children(".fa-angle-left").first().removeClass("fa-angle-left").addClass("fa-angle-down");
+                    }
+                    //Slide open or close the menu on link click
+                    btn.click(function(e) {
+                        //e.preventDefault();
+                        if (isActive) {
+                            //Slide up to close menu
+                            menu.slideUp();
+                            isActive = false;
+                            btn.children(".fa-angle-down").first().removeClass("fa-angle-down").addClass("fa-angle-left");
+                            btn.parent("li").removeClass("active");
+                        } else {
+                            //Slide down to open menu
+                            menu.slideDown();
+                            isActive = true;
+                            btn.children(".fa-angle-left").first().removeClass("fa-angle-left").addClass("fa-angle-down");
+                            btn.parent("li").addClass("active");
+                        }
+                    });
+
+                    /* Add margins to submenu elements to give it a tree look */
+                    menu.find("li > a").each(function() {
+                        var pad = parseInt($(this).css("margin-left")) + 10;
+
+                        $(this).css({"margin-left": pad + "px"});
+                    });
+
+                });
+
+            }
+        }
+    });
     /*分页*/
     app.directive('pagination', function () {
        
@@ -184,49 +236,31 @@ define(function(require, exports, module) {
                 break;
             }
         };
+        $scope.menus = window.Menus;
 
         $scope.user = $scope.user || { name:'喵星人',avatar:'/public/assets/img/cat.jpg' };
 
 
         $scope.logout = IGrow.logout;
-        $scope.reload = function($event){
-            var target = $event.currentTarget,
-                href = target.href,
-                hash = location.hash;
-
-            if(href.indexOf(hash)>-1) {
-                $route.reload();
-            }
-            
-        };
+        
         $scope.run = function(){
             $scope.test = 'test';
-            initRouteConifg();
-        };
+            console.log('$scope.run')
+            // 初始化路由
+            routeConfig(IGrow.modules);
 
+            $scope.bindUI();
+        };
+        $scope.bindUI = function(){
+            /* Sidebar tree view */
+            $(".sidebar .treeview").tree();
+        };
+        
+
+        // init
         $scope.run();
 
 
-        // 初始化路由
-        function initRouteConifg(){
-           
-            // 配置路由
-            routeConfig(IGrow.modules);
-            $route.reload();
-
-            /*if(!location.hash){
-                $('#dashboard-link').trigger('click');
-                // location.hash ie8下会一直刷新
-                //location.hash = '#/dashboard';
-            }*/
-                
-
-        }
-        
-
-            
-            
-       
         
     }]);
 

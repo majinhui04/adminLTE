@@ -6,7 +6,7 @@
         id:1,
         username:'mjh',
         name:'马金慧',
-        avatar:'https://avatars1.githubusercontent.com/u/5791060'
+        avatar:'/public/assets/img/avatar.png'
     },
     {
         id:2,

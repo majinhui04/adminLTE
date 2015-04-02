@@ -19,32 +19,32 @@ $(function() {
         e.preventDefault();
 
         //If window is small enough, enable sidebar push menu
-        if ($(window).width() <= 992) {
-            $('.row-offcanvas').toggleClass('active');
-            $('.left-side').removeClass("collapse-left");
-            $(".right-side").removeClass("strech");
-            $('.row-offcanvas').toggleClass("relative");
+        $('body').toggleClass('sidebar-collapse');
+    });
+
+
+    $(document).on('click',"[data-widget='collapse']",function(e){
+        var $target = $(e.currentTarget);
+        //Find the box parent        
+        var box = $target.parents(".box").first();
+        //Find the body and the footer
+        var bf = box.find(".box-body, .box-footer");
+        if (!box.hasClass("collapsed-box")) {
+            box.addClass("collapsed-box");
+            //Convert minus into plus
+            $target.children(".fa-minus").removeClass("fa-minus").addClass("fa-plus");
+            bf.slideUp();
         } else {
-            //Else, enable content streching
-            $('.left-side').toggleClass("collapse-left");
-            $(".right-side").toggleClass("strech");
+            box.removeClass("collapsed-box");
+            //Convert plus into minus
+            $target.children(".fa-plus").removeClass("fa-plus").addClass("fa-minus");
+            bf.slideDown();
         }
     });
-
-    //Add hover support for touch devices
-    $('.btn').bind('touchstart', function() {
-        $(this).addClass('hover');
-    }).bind('touchend', function() {
-        $(this).removeClass('hover');
-    });
-
-    //Activate tooltips
-    $("[data-toggle='tooltip']").tooltip();
-
     /*     
      * Add collapse and remove events to boxes
      */
-    $("[data-widget='collapse']").click(function() {
+    /*$("[data-widget='collapse']").click(function() {
         //Find the box parent        
         var box = $(this).parents(".box").first();
         //Find the body and the footer
@@ -60,7 +60,7 @@ $(function() {
             $(this).children(".fa-plus").removeClass("fa-plus").addClass("fa-minus");
             bf.slideDown();
         }
-    });
+    });*/
 
     /*
      * ADD SLIMSCROLL TO THE TOP NAV DROPDOWNS
@@ -92,8 +92,7 @@ $(function() {
         box.slideUp();
     });
 
-    /* Sidebar tree view */
-    $(".sidebar .treeview").tree();
+    
 
     /* 
      * Make sure that the sidebar is streched full height
