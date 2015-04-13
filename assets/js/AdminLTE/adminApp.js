@@ -215,7 +215,7 @@ define(function(require, exports, module) {
     
     /* 自定义 MLoading */
     app.factory('mLoading',function(){
-        console.log(111111,IGrow)
+        //console.log(111111,IGrow)
         return IGrow.mobile.loading;
     });
     /* 自定义 MNotice */
@@ -229,14 +229,19 @@ define(function(require, exports, module) {
         var Guests = window.Guests || [];
         var username = localStorage.getItem('username') || '';
 
-
+        // 用户列表
         for (var i = Guests.length - 1; i >= 0; i--) {
             if(Guests[i].username == username) {
                 $scope.user = Guests[i];
                 break;
             }
         };
-        $scope.menus = window.Menus;
+
+        // 左侧菜单
+        $scope.menus = window.Menus || [];
+        for (var i = $scope.menus.length - 1; i >= 0; i--) {
+            $scope.menus[i].icon = $scope.menus[i].icon || 'fa fa-folder';
+        };
 
         $scope.user = $scope.user || { name:'喵星人',avatar:'/public/assets/img/cat.jpg' };
 
@@ -252,8 +257,7 @@ define(function(require, exports, module) {
             $scope.bindUI();
         };
         $scope.bindUI = function(){
-            /* Sidebar tree view */
-            $(".sidebar .treeview").tree();
+            
         };
         
 
@@ -301,27 +305,34 @@ define(function(require, exports, module) {
 
 
             function hashChange(hash) {
+                var module;
                 var modules = IGrow.modules || [];
                 var hash = hash || location.hash|| '',
                     match = /(#\/\w+)\/?\S*?/.exec(hash),
                     route = match?match[1]:'',
-                    $target = $('.sidebar').find('a[href="'+route+'"]'),
+                    $target = $('.sidebar').find('a[href="'+hash+'"]'),
+                    $li = $target.closest('li'),
                     title = '',
-                    $parent = $target.closest('.treeview');
+                    $parent = $li.parent().closest('.treeview');
 
-                console.log(hash,route,111)
+                console.log('hash,route,111',hash,route,111);
+                console.log('$target',$target,$parent)
                 
                 for (var i = modules.length - 1; i >= 0; i--) {
                     if(modules[i].route == hash.substring(1)){
+                        module = modules[i];
                         title = modules[i].title;
                         break;
                     }
                 };
                 console.log('title',title)
+
+                // 面包屑
                 $('.content-header h1 span,.breadcrumb .active').text(title);
                 
-                $('.treeview-menu >li >a').removeClass('active');
-                $target.addClass('active');
+                $('.treeview-menu li ').removeClass('active');
+                $li.addClass('active');
+                $parent.addClass('active');
             }
 
         }

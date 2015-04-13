@@ -141,7 +141,7 @@
             // 首页
             {
                 route:'/dashboard',
-                title:'首页',
+                title:'Dashboard',
                 controller: function($scope, $routeParams, $location) {
                     
                     
@@ -151,42 +151,7 @@
                 description:''
             },
 
-            /*
-                Mobile
-            */
-            {
-                route:'/mobile/api',
-                title:'移动端',
-                controller: function($scope, $routeParams, $location) {
-                    
-                    //  /assets/js/controllers/mobile/api.html
-                },
-                template: '<div class=""><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/api.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
-                dependency:[],
-                description:''
-            },
-            {
-                route:'/mobile/animate',
-                title:'动画',
-                controller: function($scope, $routeParams, $location) {
-                    
-                    //  /assets/js/controllers/mobile/api.html
-                },
-                template: '<div class=""><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/animate.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
-                dependency:[],
-                description:''
-            },
-            {
-                route:'/mobile/animate1',
-                title:'animate.css',
-                controller: function($scope, $routeParams, $location) {
-                    
-                    //  /assets/js/controllers/mobile/api.html
-                },
-                template: '<div class=""><iframe autoiframe id="frameWin" src="/public/admin/pages/mobile/animate_css.html" name="opWin" style="min-height:400px;width:100%;" frameborder="0" scrolling="no"></iframe></div>',
-                dependency:[],
-                description:''
-            },
+
 
             /* 
                 文章类别
@@ -303,7 +268,7 @@
             controller: m.controller || noop,
             title:m.title
         };
-        console.log('result',result)
+        //console.log('result',result)
         if(m.controllerUrl){
             result.controllerUrl = m.controllerUrl;
         }
