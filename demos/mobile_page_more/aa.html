@@ -1,0 +1,52 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.keleyi.com/1999/xhtml"> 
+<head> 
+<title>监视滚动像素，显示或隐藏顶部导航条-柯乐义</title> 
+<style type="text/css"> 
+#topmenu_keleyi_com{position:fixed;top:0px;left:0px;right:0px;width:800px;margin-left:auto;margin-right:auto;height:50px;background-color:transparent;display:none;} 
+#topmenu_keleyi_com li{float:left; 
+list-style:none; 
+margin-right:1px; 
+width:116px; 
+background-color:#e0f0e0; 
+} 
+#topmenu_keleyi_com ul{ margin:0px;padding:0px;} 
+body{margin:0px;} 
+</style> 
+<script type="text/javascript" src="http://www.keleyi.com/keleyi/pmedia/jquery-1.9.1.min.js"></script> 
+</head> 
+<body> 
+<div id="topmenu_keleyi_com"><ul><li><a href="http://www.keleyi.com/menu/net/" target="_blank">.NET</a></li><li><a href="http://www.keleyi.com/menu/javascript/" target="_blank">Javascript</a></li><li><a href="http://www.keleyi.com/menu/jquery/" target="_blank">jQuery</a></li><li><a href="http://www.keleyi.com/menu/csharp/" target="_blank">C#</a></li><li><a href="http://www.keleyi.com/menu/other/" target="_blank">其他</a></li><li><a href="http://www.keleyi.com/" target="_blank">首页</a></li></ul></div> 
+<div style="background-color:#959822; width:100%;height:150px;">请滚动鼠标使页面向下</div> 
+<div style="background-color:Green; width:100%;height:150px;">www.keleyi.com</div> 
+<div style="background-color:Red; width:100%;height:150px;">欢迎</div> 
+<div style="background-color:Yellow; width:100%;height:150px;">hi</div> 
+<div style="background-color:Silver; width:100%;height:150px;">柯乐义</div> 
+<div style="background-color:Aqua; width:100%;height:150px;">keleyi.com</div> 
+<div style="background-color:Fuchsia; width:100%;height:150px;">keleyi</div> 
+<div style="background-color:Green; width:100%;height:150px;">keleyi.com</div> 
+<div style="background-color:Blue; width:100%;height:150px;">柯乐义</div> 
+<div style="background-color:Olive; width:100%;height:150px;">柯乐义 监视下滚像素</div> 
+<div style="background-color:Green; width:100%;height:150px;">A</div> 
+<div style="background-color:Purple; width:100%;height:150px;">jquery</div> 
+<div style="background-color:Green; width:100%;height:150px;"><a href="http://www.keleyi.com/a/bjac/f4a6f78d74a251c5.htm" target="_blank">原文</a></div> 
+<div style="background-color:Lime; width:100%;height:150px;">keleyi.com</div> 
+<div style="background-color:Orange; width:100%;height:150px;">完整代码</div> 
+<script type="text/javascript"> 
+$(function () { 
+//当滚动条的位置处于距顶部200像素以下时，顶部导航出现，否则消失 
+$(function () { 
+$(window).scroll(function () { 
+if ($(window).scrollTop() < 200) { 
+$("#topmenu_keleyi_com").fadeIn(100); 
+} 
+else { 
+$("#topmenu_keleyi_com").fadeOut(100); 
+} 
+}); 
+}); 
+}); 
+</script> 
+</body> 
+</html> 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RGB颜色与十六位颜色代码转换</title>
+    <style>
+        .color {
+            display: inline-block;
+            width: 50px;
+            height: 20px;
+
+        }
+        .text7 {
+            color: red;
+        }
+    </style>
+    
+</head>
+<body>
+    <div>
+        <p>
+            RGB颜色转化成十六位颜色代码： 
+            
+        </p>
+        <p>
+            <input size="3" value="100" id="r1e" name="r1e">&nbsp;
+            <input size="3" value="255" id="r1e" name="r1e">&nbsp;
+            <input size="3" value="0" id="r1e" name="r1e">&nbsp;
+            <input onclick="showRGB()" type="button" value="&nbsp;转&nbsp;&nbsp;换&nbsp;" name="button">
+            <span id="color1" class="color">&nbsp;</span>
+            <div id="a_mo2" class="text7"></div>
+        </p>
+
+    </div>
+
+    <div>
+        <p>
+            十六位颜色代码转化成RGB颜色： 
+       
+            
+        </p>
+        <p>
+            <input size="10" value="#CC00FF" id="rgb2" name="rgb2">&nbsp;
+            <input onclick="showRGB2()" type="button" value="&nbsp;转&nbsp;&nbsp;换&nbsp;" name="button">
+            <span id="color2" class="color">&nbsp;</span>
+            <div id="a_mo3" class="text7"></div>
+        </p>
+
+    </div>
+        
+    <script>
+        var color1 = document.getElementById('color1');
+        var a_mo2 = document.getElementById('a_mo2');
+        var r1e = document.getElementsByName('r1e');
+
+
+        var color2 = document.getElementById('color2');
+        var rgb2 = document.getElementById('rgb2');
+        var a_mo3 = document.getElementById('a_mo3');
+
+        function showRGB() {
+            hexcode = "#";
+            for (x = 0; x < 3; x++) {;
+                var n = r1e[x].value;
+                if (n == "") n = "0";
+                if (parseInt(n) != n) return alert("请输入数字！");
+                if (a < 0 && a > 255) return alert("数字在0－255之间！");
+                var c = "0123456789abcdef";
+                var b = "";
+                var a = n % 16;
+                b = c.substr(a, 1) ;
+                a = (n - a) / 16;
+                hexcode += c.substr(a, 1) + b;
+            }
+            
+            color1.style.backgroundColor = a_mo2.innerText = hexcode;
+        }
+
+        function showRGB2() {
+            var a = rgb2.value;
+            if (a.substr(0, 1) == "#") a = a.substring(1);
+            if (a.length != 6) return alert("请输入正确的颜色编码！");
+
+            color2.style.backgroundColor = "#" + a;
+            a = a.toLowerCase();
+            b = new Array();
+            for (x = 0; x < 3; x++) {
+                b[0] = a.substr(x * 2, 2) ;
+                b[3] = "0123456789abcdef";
+                b[1] = b[0].substr(0, 1);
+                b[2] = b[0].substr(1, 1);
+                b[20 + x] = b[3].indexOf(b[1]) * 16 + b[3].indexOf(b[2]);
+            }
+            a_mo3.innerText = b[20] + "," + b[21] + "," + b[22];
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

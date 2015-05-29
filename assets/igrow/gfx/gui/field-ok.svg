@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Form-API" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Form-elements" sketch:type="MSArtboardGroup" transform="translate(-262.000000, -959.000000)" fill="#A5D246">
+            <g id="Input-Fields" sketch:type="MSLayerGroup" transform="translate(39.000000, 575.000000)">
+                <g id="States" transform="translate(0.000000, 59.000000)" sketch:type="MSShapeGroup">
+                    <g id="Valid" transform="translate(0.000000, 282.000000)">
+                        <g id="Input-text-valid">
+                            <g id="Icon" transform="translate(224.000000, 43.000000)">
+                                <path d="M14.4388567,2.30094377 L12.2523648,0.114451872 C12.1311651,-0.00674784635 11.9230443,-0.00674784635 11.8006204,0.114451872 L5.15422368,6.77798792 L2.25644859,3.86307348 C2.13524887,3.74187376 1.92712814,3.74187376 1.80470418,3.86307348 L-0.381787711,6.04956537 C-0.50298743,6.17076509 -0.50298743,6.37888582 -0.381787711,6.50130978 L4.9289636,11.8120611 C4.99874526,11.8647034 5.06730267,11.8989821 5.15422368,11.8989821 C5.2411447,11.8989821 5.31092635,11.8647034 5.37948377,11.8120611 L14.4388567,2.75268817 C14.5600564,2.63148846 14.5600564,2.42336773 14.4388567,2.30094377 L14.4388567,2.30094377 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

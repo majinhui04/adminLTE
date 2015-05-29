@@ -5,7 +5,19 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
 
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0; }
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -97,7 +109,7 @@ dfn {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari, and Chrome.
  */
-.h1 {
+h1, .h1 {
   font-size: 2em;
   margin: 0.67em 0; }
 
@@ -207,7 +219,7 @@ textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-.button-default, .button-primary,
+.attachments-file a, .button-default, .button-primary,
 .button-red,
 .button-orange,
 .button-green,
@@ -220,7 +232,7 @@ textarea {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-.button-default, .button-primary,
+.attachments-file a, .button-default, .button-primary,
 .button-red,
 .button-orange,
 .button-green,
@@ -235,7 +247,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-.button-default, .button-primary,
+.attachments-file a, .button-default, .button-primary,
 .button-red,
 .button-orange,
 .button-green,
@@ -248,7 +260,7 @@ select {
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled], [disabled].button-default, [disabled].button-primary,
+button[disabled], .attachments-file a[disabled], [disabled].button-default, [disabled].button-primary,
 input[disabled][type="submit"], [disabled].button-red,
 [disabled].button-orange,
 [disabled].button-green,
@@ -259,7 +271,7 @@ html input[disabled] {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-.button-default::-moz-focus-inner, .button-primary::-moz-focus-inner,
+.attachments-file a::-moz-focus-inner, .button-default::-moz-focus-inner, .button-primary::-moz-focus-inner,
 .button-red::-moz-focus-inner,
 .button-orange::-moz-focus-inner,
 .button-green::-moz-focus-inner,
@@ -610,12 +622,12 @@ th {
 /**
  * Light - 300
  */
-/*@font-face {
+@font-face {
   font-family: 'Open Sans';
   src: url("../fonts/OpenSans-300.eot");
   src: url("../fonts/OpenSans-300.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-300.woff") format("woff"), url("../fonts/OpenSans-300.ttf") format("truetype"), url("../fonts/OpenSans-300.svg#open_sans") format("svg");
   font-weight: 300;
-  font-style: normal; }*/
+  font-style: normal; }
 
 
 /**
@@ -623,26 +635,11 @@ th {
  *
  * Styling of universal selectors, <html> and <body>
  */
-
 html {
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
   height: 100%;
   width: 100%;
   font-size: 87.5%;
   line-height: 1.414em; }
-
-body {
-  margin: 0;
-  padding: 0;
-  /*font: normal 12px/1.5 "Helvetica Neue","Microsoft Yahei",sans-serif;*/
-}
 
 /**
  * Universal selectors
@@ -712,7 +709,6 @@ dl {
  */
 .list-unstyled {
   margin: 0;
-  padding: 0;
   list-style: none; }
 
 .list-inline, .tabs {
@@ -1025,16 +1021,41 @@ a {
   cursor: pointer;
   outline: none;
   position: relative;
-  text-decoration: none; }
+  text-decoration: underline; }
   a:hover, a:active, a:focus {
-    color: #1b82a5; }
+    color: #1b82a5;
+    text-decoration: underline; }
   a:active, a:focus {
     outline: none; }
   a.button-default[rel~="external"] {
     padding-right: 32px ;
     padding-right: 2.28571rem ; }
 
+/**
+ * Overrides
+ */
+a.plus {
+  margin-left: 13px ;
+  margin-left: 0.92857rem ;
+  font-weight: 600;
+  position: relative; }
+  a.plus:before {
+    color: #333333;
+    content: '+';
+    left: -13px ;
+    left: -0.92857rem ;
+    position: absolute;
+    top: 0.5px ;
+    top: 0.03571rem ;
+    width: 13px ;
+    width: 0.92857rem ; }
+  a.plus:link, a.plus:visited {
+    text-decoration: none; }
+  a.plus:hover, a.plus:active, a.plus:focus {
+    text-decoration: underline; }
 
+a.incognito {
+  color: #999999; }
 
 /**
  * Other inline elements
@@ -1152,7 +1173,7 @@ fieldset {
     margin: 0px 0px 16px ;
     margin: 0rem 0rem 1.14286rem ; }
 
-.generalLabel {
+label, .generalLabel {
   color: #666666;
   cursor: pointer;
   display: block;
@@ -1750,7 +1771,7 @@ input[type="radio"]:checked + label:before, input[type="radio"]:checked + .gener
 
 
 /**
- * Table styling bootstrap
+ * Table styling
  */
 table {
   background-color: transparent;
@@ -3035,7 +3056,7 @@ i.icon-apps-bibapp {
 a.button {
   background: none;
   color: #219dc8;
-  font-weight: 600 ;
+  font-weight: 600 !important;
   margin-right: 15px ;
   margin-right: 1.07143rem ; }
   a.button:hover, a.button:active, a.button:focus {
@@ -3195,7 +3216,8 @@ a.button {
     margin-top: -0.85714rem ;
     top: 50%; }
 
-/*.overlay {
+
+.overlay {
   background-color: rgba(0, 0, 0, 0.32);
   bottom: 0;
   height: 100%;
@@ -3308,7 +3330,7 @@ html.no-csstransitions .overlay {
       min-width: 28.57143rem ; }
   .overlay .newsletterDialog {
     max-width: 600px ;
-    max-width: 42.85714rem ; } }*/
+    max-width: 42.85714rem ; } }
 
 .embedfield {
   text-align: center;
@@ -3801,180 +3823,32 @@ figure {
 
 
 
+
+.scrollTop {
+  background: #219dc8;
+  bottom: 20px ;
+  bottom: 1.42857rem ;
+  color: #ffffff;
+  display: block;
+  line-height: 40px ;
+  line-height: 2.85714rem ;
+  position: fixed;
+  right: 20px ;
+  right: 1.42857rem ;
+  width: 40px ;
+  width: 2.85714rem ;
+  height: 40px ;
+  height: 2.85714rem ;
+  text-align: center;
+  z-index: 100000000; }
+  .scrollTop:hover {
+    background: #24abda;
+    cursor: pointer; }
+
 /**
  * majinhui
  */
 .ng-hide {
   display: none;
 }
-
-/*上下拉动滚动条时卡顿、慢*/
-.abc {
-  -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
-}
-/* 禁止复制、选中文本 */
-.abc {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
-}
-/* 长时间按住页面出现闪退 */
-.abc {
-  -webkit-touch-callout: none;
-}
-/* iphone及ipad下输入框默认内阴影 */
-.abc {
-  -webkit-appearance: none; 
-}
-/* 更改输入框placeholder的颜色 */
-/* placeholder的文字在ios下可以换行，android不行 */
-/*
-input::-webkit-input-placeholder { color:#999; }
-input:focus::-webkit-input-placeholder { color:#333; }
-*/
-
-/* ios和android下触摸元素时出现半透明灰色遮罩 
-设置alpha值为0就可以去除半透明灰色遮罩，备注：transparent的属性值在android下无效。 
-.abc {
-  -webkit-tap-highlight-color:rgba(255,255,255,0)
-}
-*/
-/* active兼容处理 <body ontouchstart=""> */
-
-/* 动画定义3D启用硬件加速 -webkit-transform:translate3d(0, 0, 0) */
-/* Retina屏的1px边框  border-width: thin; */
-
-/* 旋转屏幕时，字体大小调整的问题 
-html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
-    -webkit-text-size-adjust:100%;
-}
-
-*/
-
-/*
-transition闪屏
-
-设置内嵌的元素在 3D 空间如何呈现：保留3D 
--webkit-transform-style: preserve-3d;
- 
-设置进行转换的元素的背面在面对用户时是否可见：隐藏 
--webkit-backface-visibility:hidden;
-*/
-
-/* create an arrow that points up */
-em.arrow-up {
-  width:0px;
-  height:0px;
-  border-left:5px solid transparent;  /* left arrow slant */
-  border-right:5px solid transparent; /* right arrow slant */
-  border-bottom:5px solid #2f2f2f; /* bottom, add background color here */
-  font-size:0px;
-  line-height:0px;
-}
- 
-/* create an arrow that points down */
-em.arrow-down {
-  width:0px;
-  height:0px;
-  border-left:5px solid transparent;
-  border-right:5px solid transparent;
-  border-top:5px solid #2f2f2f;
-  font-size:0px;
-  line-height:0px;
-}
- 
-/* create an arrow that points left */
-em.arrow-left {
-  width:0px;
-  height:0px;
-  border-bottom:5px solid transparent;  /* left arrow slant */
-  border-top:5px solid transparent; /* right arrow slant */
-  border-right:5px solid #2f2f2f; /* bottom, add background color here */
-  font-size:0px;
-  line-height:0px;
-}
- 
-/* create an arrow that points right */
-em.arrow-right {
-  width:0px;
-  height:0px;
-  border-bottom:5px solid transparent;  /* left arrow slant */
-  border-top:5px solid transparent; /* right arrow slant */
-  border-left:5px solid #2f2f2f; /* bottom, add background color here */
-  font-size:0px;
-  line-height:0px;
-}
-
-
-/*  表单补充 */
-.i-group-inline:after {
-  display: table;
-  content: '';
-  clear: both;
-}
-.i-group-inline .generalLabel {
-  float: left;
-  width: 80px;
-  padding-top: 7px;
-}
-.i-group-inline .inputLayoutWrapper {
-  margin-left: 80px;
-}
-input.i-form-control {
-  padding: 6px 12px;
-}
-input[type="checkbox"].i-normal ,input[type="radio"].i-normal {
-  clip: auto;
-  position: static;
-}
-
-.btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.btn-default {
-  color: #fff;
-  background-color: #999;
-}
-.btn-default:hover {
-  background-color: #777
-}
-.btn-info {
-  color: #fff;
-  background-color: #41B3E0;
-}
-.btn-info:hover {
-  color: #fff;
-  background-color: #219ccd;
-}
-.btn-danger {
-  color: #fff;
-  background:#D04341;
-}
-.btn-danger:hover {
-  background:#b22e2c;
-}
-
-
-
-
 

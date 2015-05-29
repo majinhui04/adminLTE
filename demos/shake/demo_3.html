@@ -1,0 +1,234 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>客官，摇一摇</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <style>
+    * { margin: 0; padding: 0; box-sizing:border-box;}
+    body { background: #292D2E; height: 100%;}
+    .hand { width: 190px; height: 300px; background: url(hand1.png) no-repeat; position: absolute; top: 50px; left: 50%; margin-left: -95px; background-size: 100% auto;
+
+    }
+    .hand-animate { -webkit-animation: hand_move infinite 2s; }
+    .result { background: #393B3C; border: #2C2C2C 1px solid; box-shadow: inset #4D4F50 0 0 0 1px; border-radius: 10px; color: #fff; padding: 10px; width: 300px; position: absolute; top: 300px; left: 50%; margin-left: -161px; opacity: 0;
+        -webkit-transition: all 1s;
+           -moz-transition: all 1s;
+            -ms-transition: all 1s;
+             -o-transition: all 1s;
+                transition: all 1s; }
+    .result .pic { width: 50px; height: 50px; float: left; background: #fff; }
+    .result .con { overflow: hidden; zoom: 1; padding-left: 10px; line-height: 24px; }
+    .result-show { opacity: 1; margin-top: 50px; }
+    .loading { position: absolute; top: 240px; left: 50%; margin-left: -50px; width: 100px; height: 100px; background: url(spinner.png) no-repeat; background-size: 100px 100px; opacity: 0;
+        -webkit-animation: loading infinite linear .5s;
+           -moz-animation: loading infinite linear .5s;
+            -ms-animation: loading infinite linear .5s;
+             -o-animation: loading infinite linear .5s;
+                animation: loading infinite linear .5s;
+        -webkit-transition: all .5s;
+           -moz-transition: all .5s;
+            -ms-transition: all .5s;
+             -o-transition: all .5s;
+                transition: all .5s; }
+    .loading-show { opacity: 1; }
+    
+    @-webkit-keyframes hand_move {
+        0% {
+            -webkit-transform: rotate(0);
+               -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                 -o-transform: rotate(0);
+                    transform: rotate(0); }
+        50% {
+            -webkit-transform: rotate(15deg);
+               -moz-transform: rotate(15deg);
+                -ms-transform: rotate(15deg);
+                 -o-transform: rotate(15deg);
+                    transform: rotate(15deg); }
+        100% {
+            -webkit-transform: rotate(0);
+               -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                 -o-transform: rotate(0);
+                    transform: rotate(0); }
+    }
+    @-webkit-keyframes loading {
+        0% {
+            -webkit-transform: rotate(0);
+               -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                 -o-transform: rotate(0);
+                    transform: rotate(0); }
+        100% {
+            -webkit-transform: rotate(360deg);
+               -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                 -o-transform: rotate(360deg);
+                    transform: rotate(360deg); }
+    }
+
+    .xx {
+        position: absolute;
+        left: -9999px;
+        top:-9999px;
+    }
+    .action {
+        position: fixed;
+        left: 0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+        background-color: rgba(0,0,0,0.6);
+    }
+    #start {
+        font-size: 2em;
+        margin-top: 30%;
+    }
+    h1 {
+        text-align: center;
+        color: #FFF
+    }
+    </style>
+</head>
+<body>
+    <h1>手机摇一摇</h1>
+    <div id="hand" class="hand hand-animate"></div>
+    <div id="loading" class="loading"></div>
+    <div id="result" class="result">
+        <div class="pic"></div>
+        <div class="con">客官<br/><b id="result1">再用力点嘛</b></div>
+    </div>
+
+    <div class="action" id="action">
+        <button id="start">开始玩</button>
+    </div>
+    <div class="xx">
+        <audio src="jjj.mp3" id="myaudio"></audio>
+    </div>
+    <script>
+
+    (function(){
+
+        var SHAKE_THRESHOLD = 800; // 800
+        var last_update = 0;
+        var x = y = z = last_x = last_y = last_z = 0;
+
+        var DeviceMotionHandler = window['DeviceMotionHandler'] = {
+            setShake:function(num){
+                SHAKE_THRESHOLD = num;
+            },
+            isLock:false,
+            alert:function(msg){
+                alert(msg);
+            },
+            unlock:function(){
+                this.isLock = false;
+            },
+            lock:function(){
+                this.isLock = true;
+            },
+            handler:function(eventData){
+                var acceleration = eventData.accelerationIncludingGravity;
+                var curTime = new Date().getTime();
+                var self = this;
+
+                // 100毫秒进行一次位置判断，若前后x, y, z间的差值的绝对值和时间比率超过了预设的阈值，则判断设备进行了摇晃操作。
+                if ((curTime - last_update) > 100) {
+                    var diffTime = curTime - last_update;
+                    last_update = curTime;
+                    x = acceleration.x;
+                    y = acceleration.y;
+                    z = acceleration.z;
+                    var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                    
+                    if (speed > SHAKE_THRESHOLD) {
+                        self.callback(eventData,x,y,z);
+                    }
+                    last_x = x;
+                    last_y = y;
+                    last_z = z;
+                }
+            },
+            init:function(options){
+                var opts = options || {};
+                
+                var self = this;
+
+                this.callback = opts.callback || function(){};
+
+                //console.log(SHAKE_THRESHOLD);
+
+
+                if (window.DeviceMotionEvent) {
+                    window.addEventListener('devicemotion', function(event){
+                        
+                        !self.isLock && self.handler(event);
+
+                    }, false);
+                } else {
+                    self.alert('本设备不支持devicemotion事件');
+                }
+            }
+        };
+
+
+    })();
+
+
+    </script>
+    <script>
+    var arr = ['再用力点嘛','轻点嘛','昨晚是不是撸多了','用点力，再用点力','请对人家温柔点','哎呀，好疼','哎呦，晕了','给点力','太轻了啊'];
+    var LOCK = false;
+    var START = false;
+    var oAudio = document.getElementById('myaudio');
+    var oStart = document.getElementById('start');
+    var oAction = document.getElementById('action');
+    var oResult = document.getElementById('result1');
+
+    oStart.addEventListener('click',function(){
+        START = true;
+        oAction.style.display = 'none';
+        oAudio.play();
+        oAudio.pause();
+    },false);
+    DeviceMotionHandler.setShake(1111);
+    DeviceMotionHandler.init({
+        callback:doResult
+    });
+
+    //play and pause it once
+    document.addEventListener('touchstart', function () {
+
+        document.getElementsByTagName('audio')[0].play();
+
+        document.getElementsByTagName('audio')[0].pause();
+
+    });
+
+
+    function doResult() {
+        DeviceMotionHandler.lock();
+
+        var index = Math.floor(Math.random()*10);
+        oResult.innerHTML = arr[index];
+        document.getElementById("result").className = "result";
+        document.getElementById("loading").className = "loading loading-show";
+        oAudio.play();
+        setTimeout(function(){
+            //document.getElementById("hand").className = "hand";
+            document.getElementById("result").className = "result result-show";
+            document.getElementById("loading").className = "loading";
+        }, 1000);
+
+        setTimeout(function(){
+            DeviceMotionHandler.unlock();
+        },5000);
+    }
+    </script>
+
+</body>
+</html>

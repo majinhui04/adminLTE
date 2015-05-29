@@ -63,9 +63,9 @@
             items:[
                 {
                     id:'3-1',
-                    title:'General',
-                    href:'#/ui/general',
-                    page:''
+                    title:'General2',
+                    href:'#/ui/elements/1',
+                    page:'/public/assets/igrow/test/css3/1.html'
                 },
                 {
                     id:'3-2',

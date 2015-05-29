@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Registreren</title>
+        <link rel="stylesheet" href="./css/igrow.css" />
+        
+        <style>
+            .w960 {
+                width: 90%;
+                max-width: 640px;
+                margin: 0 auto;
+                padding: 20px 0;
+            }
+        </style>
+    </head>
+    
+    <body>
+    <div class="w960">
+        <section class="oWrapper">
+            <div class="helpBox helpBubble bottom-right">
+                <p>dsd am helpBox 我是一个小黄人 哈哈哈哈</p>
+            </div>
+            <!-- <div class="overlay">
+                <div class="overlayBox overlayBox-big">
+                    <div class="overlayBox-header">我问问</div>
+                    <div class="overlayBox-heading">大家快点</div>
+                </div>
+            </div> -->
+        </section>
+        <section class="spWrapper">
+            <h1 class="title">spinner</h1>
+            <div>
+                <div class="spinner"></div>
+            </div>
+            
+        </section>
+        <!-- 表单 -->
+        <section class="registerWrapper">
+            <header class="text-center">
+                <h1 class="text-bold">FORM</h1>
+            </header>
+            <div status-message></div>
+
+
+            <form method="post" novalidate name="register" id="register"  class="attachments-form">
+                <div class="inputWrapper" >
+                    <label  class="required generalLabel">E-mail</label>
+                    <div class="inputLayoutWrapper">
+                        <input class="fieldInvalid ng-dirty ng-invalid "  id="email" name="email" type="email" tabindex=""  placeholder="email" >
+                        <div class="field-problem ng-hide" >
+                            <p class="ng-scope">
+                                <span class="ng-binding">请输入正确的格式</span>
+                            </p>
+                        </div>
+                      
+                    </div>
+                </div>
+
+                <div class="inputWrapper " >
+                    <label  for="email1" class="generalLabel required">address</label>
+                    <div class="inputLayoutWrapper">
+                        <input class="ng-dirty fieldValid"   name="address" type="text" placeholder="address" >
+                    
+                    </div>
+                </div>
+
+                <div class="inputWrapper " >
+                    <label class="generalLabel required">Name:</label>
+                    <div class="inputLayoutWrapper">
+                        <input class="" name="iname" type="text" placeholder="name" >
+                    </div>
+                </div>
+
+                <div class="inputWrapper " >
+                    <label class="generalLabel required">notes:</label>
+                    <div class="inputLayoutWrapper">
+                        <textarea name="note" id="note" ></textarea>
+
+                    </div>
+                    <span class="remainingChars critical">剩余字数:34</span>
+                </div>
+
+                <div class="inputWrapper " >
+                    <label class="generalLabel required">From:</label>
+                    <div class="inputLayoutWrapper">
+                        <select name="iFrom" id="iFrom">
+                            <option value="">请选择</option>
+                            <option value="A">杭州</option>
+                            <option value="B">宁波</option>
+                            <option value="C">温州</option>
+                            <option value="D">绍兴</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputWrapper " >
+                    <label class="generalLabel required">file:</label>
+                    <div class="inputLayoutWrapper">
+                        <input type="file" name="file">
+
+                    </div>
+                </div>
+
+
+                <div class="inputWrapper " >
+                    
+                    <div class="inputLayoutWrapper">
+                        <input type="checkbox" name="termsAndAgreements" id="termsAndAgreements" class="checked">
+                        <label for="termsAndAgreements">
+                            <span>已认真阅读以上说明</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="inputWrapper " >
+                    <label class="generalLabel required">Sex:</label>
+                    <div class="inputLayoutWrapper">
+                        <input type="radio" name="sex" id="man" >
+                        <label for="man">
+                            <span>man</span>
+                        </label>
+
+                        <input type="radio" name="sex" id="woman" >
+                        <label for="woman">
+                            <span>woman</span>
+                        </label>
+                    </div>
+                </div>
+
+                <p class="form-actions">
+                    <button id="RegisterForm" name="RegisterForm" class="button-primary" type="submit">Registreren</button>
+
+                </p>
+
+            </form>
+
+
+        </section>
+
+        <!-- 段落 -->
+        <section class="pWrapper">
+            <h1 class="title">段落</h1>
+            
+            <p>
+                一句话证明你的性别，不能提及男女哥弟姐妹等称呼这类的字样，而且每一层的回复不能相同，也就是说2楼说的，3楼不可以抄袭，以此类推。。。。 比如：迎风尿三丈
+            </p>
+
+            <p class="lead">
+                2.昨天晚上做个梦，有个小孩一直拿箭射我，我那个气啊，就是一顿打，直打到他说再也不敢了我才收手，后来他走的时候我问他叫什么，他说他叫丘比特。直到现在还是单身，我做错了什么吗？
+            </p>
+
+            <p class="footnote">
+                5.又到毕业季，食堂门口有学姐卖书，标语写到：“一元一本，买书送学姐啦！”果断上去围观，一新生装模作样的挑了一本书，指着标语说：“送的学姐呢？”姑娘豪迈的答到：“我们后天的火车，到时候记得来送我们啊。”
+            </p>
+        </section>
+
+        <!-- 引用 -->
+        <section class="bWrapper">
+            <h1 class="title">引用</h1>
+            <blockquote class="blockquote-left">
+                <p>
+                    12.一美女游泳时三点式的泳裤脱落了，本人不知，上岸后春光暴露，众人齐视，她发现后忙把池边一块板拿来遮羞，众人偷笑；她一看上面写道：此处危险，深二米！忙丢掉，拿另一块，众人大笑，她急看：只限男性出入！她又羞又气拿最后一块遮，众笑翻，她一看立刻昏倒，上写：妇女节帅哥免费。
+                </p>
+                 
+            </blockquote>
+
+            
+        </section>
+
+         <!-- 表格 -->
+        <section class="bWrapper">
+            <h1 class="title">表格</h1>
+
+
+            <table class="table ">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+
+            
+        </section>
+        
+        <section class="iWrapper">
+            <h1 class="title">Icons</h1>
+
+            <div>
+                <span><i class="icon-apps-bibapp"></i>111</span>
+
+    
+            </div>
+        </section>
+
+        <section class="boxWrapper">
+            <div class="box-mediaTeaser">
+                <a href="">
+                    <h3>111</h3>
+                    <div class="image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">大家开始就是咖啡</div>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="btnWrapper">
+            <h1 class="title">buttons</h1>
+            <p>
+                <button  class="button-default">button-default</button>
+                <button  class="button-red" >button-red</button>
+                <button  class="button-primary ">button-primary</button>
+                <button  class="button-orange ">button-orange</button>
+                <button  class="button-warning">button-warning</button>
+                <button  class="button-green">button-green</button>
+                <button class="button-transparent">button-transparent</button>
+                <button class="button-cancel">button-cancel</button>
+            </p>
+            <div>
+                <button class="button-default button-small">button-small</button>
+            </div>
+            <div>
+                <button class="button-default button-wide">button-wide</button>
+            </div>
+        </section>
+        
+    </div>
+             
+    </body>
+</html>
