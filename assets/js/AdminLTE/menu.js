@@ -93,6 +93,18 @@
                     title:'省市县三级联动',
                     href:'#/widgets/geo',
                     page:''
+                },
+                {
+                    id:'5-2',
+                    title:'loading1',
+                    href:'#/widgets/loading1',
+                    page:'/public/assets/igrow/test/widgets/loading1/index.html'
+                },
+                {
+                    id:'5-3',
+                    title:'模态框',
+                    href:'#/widgets/dialog',
+                    page:'/public/assets/igrow/test/widgets/dialog/index.html'
                 }
             ]
         },

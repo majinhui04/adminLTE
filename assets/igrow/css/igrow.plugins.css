@@ -1,76 +1,24 @@
 
-.clearfix:after{
-    content: "xxoo";
-    height: 0;
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    clear: both;
+*[data-role="link"] {
+    cursor: pointer;
+}
+*[data-role="link"]:hover {
+    background-color: #E4E2E3;
+}
+*[data-role="link"]:active{
+    background-color: #E4E2E3 !important;
 }
 
 
-/* fix bootstrap.css */
-.modal[role="dialog"] {
-    overflow: auto;
-}
-.modal-open {
-    overflow: auto !important;
-}
-body.modal-open {
-    margin-right: 0 !important;
-}
+
 
 .ng-cloak {
     display: none !important;
 }
-/* 
-    utils._dialog()
-    <div class="m-modal"></div>
-    <div class="m-dialog" style="left:100px;top:100px;">
-        <div class="m-content">
-            <div class="m-txt">内容啊</div>
-        </div>
-        <div class="m-footer">
-            <button class="m-btn m-btn-success">确认</button>
-            <button class="m-btn">取消</button>
-        </div>
-    </div>
 
-*/
-.m-dialog {
-    position: fixed;
-    width: 280px;
-    z-index: 9991;
-    left:-9999px;
-    top:-9999px;
-    background-color: #fff;
-    border-radius: 5px;
-}
-.m-content {
-    min-height: 30px;
-}
-.m-alert-dialog .m-content .m-txt {
-    
-}
-.m-dialog .m-txt {
-    font-size: 16px;
-    text-align: center;
-    padding: 25px 7px;
-}
-.m-footer , .modal .modal-footer {
-    border-top: 1px solid #ddd;
-    text-align: center;
-    background-color: #f8f8f8;
-    padding: 12px 0;
-    border-radius: 0 0 5px 5px;
-}
-.m-dialog .m-footer .m-one-btn {
-    padding: 7px 60px;
-}
-.m-footer .m-btn {
-    margin:0 5px; 
-}
-.m-btn{
+
+
+.m-btn , a.m-btn {
     color: #666;
     display: inline-block;
     margin-bottom: 0;
@@ -86,13 +34,13 @@ body.modal-open {
     background-color: #f5f5f5;
     background-image: linear-gradient(to bottom,#fff,#e6e6e6);
 }
-.m-btn:hover, .m-btn:active {
+.m-btn:hover, .m-btn:active, a.m-btn:hover, a.m-btn:active {
     background-color: #e6e6e6;
     background-image:none;
     color: #333;
     text-decoration: none;
 }
-.m-btn-primary {
+.m-btn-primary, a.m-btn-primary {
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
     background-color: #006dcc;
@@ -105,11 +53,11 @@ body.modal-open {
     border-color: #04c #04c #002a80;
     border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1);
 }
-.m-btn-primary:hover, .m-btn-primary:active {
+.m-btn-primary:hover, .m-btn-primary:active ,a.m-btn-primary:hover, a.m-btn-primary:active{
     color: #ffffff;
     background-color: #0044cc;
 }
-.m-btn-danger {
+.m-btn-danger, a.m-btn-danger {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #da4f49;
@@ -122,11 +70,11 @@ body.modal-open {
     border-color: #bd362f #bd362f #802420;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-.m-btn-danger:hover, .m-btn-danger:active {
+.m-btn-danger:hover, .m-btn-danger:active, a.m-btn-danger:hover, a.m-btn-danger:active {
     color: #ffffff;
     background-color: #bd362f;
 }
-.m-btn-info {
+.m-btn-info, a.m-btn-info {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #49afcd;
@@ -139,11 +87,11 @@ body.modal-open {
     border-color: #2f96b4 #2f96b4 #1f6377;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-.m-btn-info:hover, .m-btn-info:active {
+.m-btn-info:hover, .m-btn-info:active, a.m-btn-info:hover, a.m-btn-info:active {
     color: #ffffff;
     background-color: #2f96b4;
 }
-.m-btn-success {
+.m-btn-success, a.m-btn-success {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #5bb75b;
@@ -156,7 +104,7 @@ body.modal-open {
     border-color: #51a351 #51a351 #387038;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-.m-btn-success:hover, .m-btn-success:active {
+.m-btn-success:hover, .m-btn-success:active , a.m-btn-success:hover, a.m-btn-success:active{
     color: #ffffff;
     background-color: #51a351;
 }
@@ -207,6 +155,19 @@ body.modal-open {
 }
 
 /* mobile modal */
+
+/* fix bootstrap.css */
+.modal[role="dialog"] {
+    overflow: auto;
+}
+.modal-open {
+    overflow: auto !important;
+}
+body.modal-open {
+    margin-right: 0 !important;
+}
+
+
 .modal {
     position: fixed;
     top: 0;
@@ -282,126 +243,25 @@ body.modal-open {
     padding: 15px;
 }
 .modal-footer {
-    padding: 15px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 12px 0;
+    border-radius: 0 0 5px 5px;
+}
+.modal-footer .m-btn-one {
+    padding: 7px 60px;
+}
+.modal-footer {
     text-align: center;
     border-top: 1px solid #e5e5e5;
 }
 .modal-footer a {
     text-decoration: none;
-    color: #0e90d2;
-    display: inline-block;
-    padding: 5px 7px;
+    margin: 0 7px;
 }
 
 
-
-.modal-mobile {
-    
-}
-.modal-mobile .modal-body {
-    text-align: center;
-}
-.modal-mobile .modal-dialog{
-    width: 300px;
-}
-.modal-mobile .modal-footer {
-    text-align: center;
-    padding: 0;
-}
-
-.modal-mobile .btn-alert ,.modal-mobile .btn-confirm-no,.modal-mobile .btn-confirm-yes {
-    font-size: 16px;
-    display: inline-block;
-    padding: 0 5px;
-    height: 44px;
-    -webkit-box-sizing: border-box!important;
-    -moz-box-sizing: border-box!important;
-    box-sizing: border-box!important;
-    line-height: 44px;
-    text-align: center;
-    color: #0e90d2;
-    word-wrap: normal;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-    
-}
-.modal-mobile a.btn-alert{
-    display: block;
-    margin: 0 auto;
-}
-.modal-mobile .btn-confirm-no,.modal-mobile .btn-confirm-yes {
-    width: 48%;
-}
-.modal-mobile .btn-confirm-no {
-    border-right: 1px solid #dedede;
-}
-
-
-
-
-/* modal */
-.m-modal {
-    position: fixed;
-    width: 100%;
-    height: 99999px;
-    background-color: rgba(0,0,0,0.3);
-    z-index: 1000;
-    left:0;
-    top:0;
-}
-/* options */
-.m-options-box {
-    width: 100%;
-    position: fixed;
-    bottom: -200px;
-    left: 0;
-    font-size: 16px;
-    z-index: 900;
-    transition-property:all; 
-    transition-duration:0.2s;
-}
-.m-options-list {
-    margin: 0 auto;
-    width: 95%;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-}
-.m-options-item {
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    margin-top: -1px;
-    border-bottom: 1px solid #d2d2d6;
-    color:#007aff;
-}
-.m-options-item:first-child {
-    border-radius:5px 5px 0 0;
-}
-.m-options-item:last-child {
-    border-radius: 0 0 5px 5px;
-}
-.m-options-actions {
-    width: 95%;
-    margin: 0 auto;
-    margin-top: 10px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-}
-.options-cancel-btn {
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    color:#007aff;
-    font-weight: 700;
-}
-.m-options-box.m-options-enter {
-    bottom:10px;
-}
-.m-options-box.m-options-leave {
-    bottom:-200px;
-}
 
 /* qq表情 */
 .expreSelect {
@@ -586,6 +446,7 @@ body.modal-open {
     <p class="counts">
         <span class="value" id="J_index">1/3</span>
     </p>
+    <p class="slide-view-title"><span id="J_title" class="value">标题</span></p>
 </div>
 
 */
@@ -637,6 +498,22 @@ body.modal-open {
     -moz-user-select: none;
     user-select: none;
 }
+.slide-view .slide-view-title {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgb(241, 241, 241);
+    padding: 0;
+
+}
+.slide-view .slide-view-title span {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background-color: rgba(102, 102, 102, 0.6);
+}
 .slide-view .counts {
     position: absolute;
     top: 5%;
@@ -644,7 +521,7 @@ body.modal-open {
     right: 0;
     text-align: center;
 }
-.slide-view .counts .value {
+.slide-view .counts .value  {
     border-radius: 9px;
     line-height: 18px;
     padding: 0 6px;
@@ -859,62 +736,13 @@ body.modal-open {
     }
 }
 
-/* 
-跳转到顶部 
-<div class="m-gotop-box">
-    <i class="fa fa-chevron-up"></i>
-</div>
 
-*/
-.m-gotop-box {
-    display: none;
-    cursor: pointer;
-    right: 10px;
-    bottom: 10px;
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 5px;
-    color: #FFF;
-    text-align: center;
-    line-height: 50px;
-    z-index: 100;
-}
-.m-gotop-box .fa {
-    margin: 0;
-}
 
 /* 修复datetimepicker在modal下层级不够 */
 .datetimepicker {
     z-index: 9999 !important;
 }
 
-.loading-more-box {
-    height: 60px;
-    color: #BBB;
-    text-align: center;
-}
-.loading-more-icon{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 7px;
-    background: url(../img/public/loading-20.gif) no-repeat 0 0;
-} 
-.loading-more-txt{
-    display: inline-block;
-    vertical-align: middle;
-}
 
-*[data-role="link"] {
-    cursor: pointer;
-}
-*[data-role="link"]:hover {
-    background-color: #E4E2E3;
-}
-*[data-role="link"]:active{
-    background-color: #E4E2E3 !important;
-}
+
+

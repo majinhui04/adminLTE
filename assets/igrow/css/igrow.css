@@ -922,7 +922,7 @@ p {
   font-size: 1em;
   line-height: 1.414em;
   line-height: 1.5554em;
-  padding-bottom: 1.2726em;
+  /*padding-bottom: 1.2726em;*/
   margin: 0; }
 
 /**
@@ -3863,6 +3863,17 @@ transition闪屏
 -webkit-backface-visibility:hidden;
 */
 
+
+
+.clearfix:after{
+    content: "xxoo";
+    height: 0;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}
+
 /* create an arrow that points up */
 em.arrow-up {
   width:0px;
@@ -3976,5 +3987,84 @@ input[type="checkbox"].i-normal ,input[type="radio"].i-normal {
 
 
 
+/* loader */
+.loader {
+    position: absolute;
+    z-index: 9;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: #2e3132
+}
+
+.loader-graph,.loader-progress {
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    width: 64px;
+    height: 64px;
+    margin: -16px 0 0 -32px
+}
+
+.loader-graph {
+    color: transparent;
+    text-align: center;
+    border-top: 5px solid rgba(255,255,255,.2);
+    border-right: 5px solid rgba(255,255,255,.2);
+    border-bottom: 5px solid rgba(255,255,255,.2);
+    border-left: 5px solid #fff;
+    border-radius: 32px;
+    -webkit-animation: rotate .72s linear infinite;
+    -o-animation: rotate .72s linear infinite;
+    animation: rotate .72s linear infinite
+}
+
+.loader-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    line-height: 24px;
+    font-size: 16px;
+    top: 50%;
+    text-align: center;
+    margin-top: 1em
+}
+
+.loader-progress {
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 24px
+}
+@-webkit-keyframes rotate{
+    0%{-webkit-transform: rotateZ(0deg);}
+    100%{-webkit-transform: rotateZ(360deg);}
+}
+.inline-block {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+input[type="text"].input-sm {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.error {
+  color: red;
+}
+input.error {
+  border-color: red;
+}
 
 
